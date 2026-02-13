@@ -57,8 +57,6 @@ def get_asymmetric_public_key_from_server():
         try:
             return json.loads(response.text)
         except Exception as e:
-            print("Server response :", response.text)
-            print("Exception e:", e)
             raise Exception("EncryptionProcessError")
     else:
         raise Exception("InternalServerError:", response.status_code)
@@ -69,7 +67,7 @@ def get_long(nodelist):
     for node in nodelist:
         if node.nodeType == node.TEXT_NODE:
             rc.append(node.data)
-    string = ''.join(rc) 
+    string = ''.join(rc)
     return number.bytes_to_long(b64decode(string))
 
 
@@ -80,11 +78,11 @@ def get_key_from_xml_string(xml_string):
     ----------
     xml_string : str, required
         The rsa public key xml string
-    
+
     Returns
     -------
     object
-        RSA key object    
+        RSA key object
     """
     rsa_key_value = minidom.parseString(xml_string)
     modulus = get_long(rsa_key_value.getElementsByTagName('Modulus')[0].childNodes)
@@ -100,12 +98,12 @@ def public_key_to_xml(pem_public_key):
     ----------
     pem_public_key : object, required
         The RSA public ley PEM
-    
+
     Returns
     -------
     str
         The rsa public key xml string
-        
+
     """
     public_key = RSA.importKey(pem_public_key)
     xml = '<RSAKeyValue>'
@@ -121,7 +119,7 @@ def public_key_to_xml(pem_public_key):
 
 def generate_rsa_asymmetric_keys():
     """Generates 1024 bit RSA key object.
-    
+
     Returns
     -------
     tuple
@@ -134,9 +132,9 @@ def generate_rsa_asymmetric_keys():
     return rsa_asymmetric_public_key, key_pair
 
 
-def combine_client_symmetric_key_client_rsa_public_key(client_symmetric_key_part, rsa_asymmetric_public_key):   
+def combine_client_symmetric_key_client_rsa_public_key(client_symmetric_key_part, rsa_asymmetric_public_key):
     """Combines two byte array
-    
+
     Parameters
     ----------
     client_symmetric_key_part : byte array, required
@@ -148,15 +146,15 @@ def combine_client_symmetric_key_client_rsa_public_key(client_symmetric_key_part
     -------
     bytes
         The combination of both keys in bytes
-    """     
+    """
     encoded_symmetric_key = list(client_symmetric_key_part)
     encoded_client_public_key = list(rsa_asymmetric_public_key)
     return bytes(encoded_symmetric_key + encoded_client_public_key)
 
 
 def encrypt_msg_with_public_key(msg, pubkey):
-    """Encrypt bytes message with RSA public key 
-    
+    """Encrypt bytes message with RSA public key
+
     Parameters
     ----------
     msg : bytes, required
@@ -168,15 +166,15 @@ def encrypt_msg_with_public_key(msg, pubkey):
     -------
     str
         The encrypted base64 message
-    """     
+    """
     encryption = PKCS1_v1_5.new(pubkey)
     encrypted_byte_array = encryption.encrypt(msg)
     return str(base64.b64encode(encrypted_byte_array), "utf-8")
 
 
 def decrypt_msg_with_private_key(cipher_text, key_pair):
-    """Decrypt bytes message with RSA private key 
-    
+    """Decrypt bytes message with RSA private key
+
     Parameters
     ----------
     cipher_text : bytes, required
@@ -188,7 +186,7 @@ def decrypt_msg_with_private_key(cipher_text, key_pair):
     -------
     list of bytes
         The decrypted symmetric key from server
-    """     
+    """
     digest_size = SHA.digest_size
     sentinel = Random.new().read(16 + digest_size)      # Let's assume that average data length is 16
     cipher = PKCS1_v1_5.new(key_pair)
@@ -198,7 +196,7 @@ def decrypt_msg_with_private_key(cipher_text, key_pair):
 
 def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
     """Perform key exchange with server
-    
+
     Parameters
     ----------
     call_node : str, required
@@ -207,12 +205,12 @@ def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
         Identification of the key returned by the server at step #1
     combined_key_encrypted_base64 : str
         Encrypted combined key
-    
+
     Returns
     -------
     dict
         Response of key exchange API
-    """     
+    """
     request_payload = {
         'key':
             {
@@ -227,8 +225,6 @@ def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
         try:
             return json.loads(response.text)
         except Exception as e:
-            print("Server response :", response.text)
-            print("Exception e:", e)
             raise Exception("EncryptionProcessError")
     else:
         raise Exception("InternalServerError:", response.status_code)
@@ -236,19 +232,19 @@ def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
 
 def make_api_call_with_encrypted_body(method_name, request_body):
     """Perfom encrypted API call with server
-    
+
     Parameters
     ----------
     method_name : str, required
         The API name
     request_body : dict, required
         Encrypted request body
-    
+
     Returns
     -------
     dict
        Encrypted response from server
-    """     
+    """
     url = get_site_url() + "/Data/"+method_name
     response = requests.post(url, json=request_body)
     if response.status_code == 200:
@@ -258,8 +254,6 @@ def make_api_call_with_encrypted_body(method_name, request_body):
             try:
                 return json.loads(response.text)
             except Exception as e:
-                print("Server response :", response.text)
-                print("Exception e:", e)
                 raise Exception("EncryptionProcessError")
     else:
         raise Exception("InternalServerError:", response.status_code)
@@ -272,7 +266,7 @@ def call_tib_api(method_name, api_request_body):
     ----------
     method_name : str, required
         The method name for which encryption is to be done
-    
+
     api_request_body : dict, required
         Request body for the method API
 
@@ -280,15 +274,15 @@ def call_tib_api(method_name, api_request_body):
     -------
     dict object
         Decrypted response from the API in json format
-    
+
     Raises
     ------
     InvalidSiteURLError
         If server is not set then it will throw an Error
-    
+
     EncryptionProcessError In encryption there are some issues with padding or data length is incorrect for
     encryption then server will refuse the API request and this error will be raised
-    
+
     InternalServerError
         Error in API call from server
     """
@@ -301,10 +295,10 @@ def call_tib_api(method_name, api_request_body):
     server_public_key_xml_string = get_public_key_api_response.get('PublicKeyXmlString')
     node_answered = get_public_key_api_response.get('NodeAnswered')
     key_token = get_public_key_api_response.get('KeyToken')
-    
+
     # - public key is in xml string that need to converted to rsa key object
     server_public_key = get_key_from_xml_string(server_public_key_xml_string)
-    
+
     # 2) Generate the client-side 16 bytes symmetric key.
     client_symmetric_key_part = bytearray(os.urandom(16))
 
@@ -316,7 +310,7 @@ def call_tib_api(method_name, api_request_body):
     rsa_asymmetric_public_key = public_key_to_xml(pub_key_PEM)
     # - then xml string to bytes array
     rsa_asymmetric_public_key = bytes(rsa_asymmetric_public_key, 'utf-8')
-    
+
     # 4) Combines client-side symmetric key and asymmetric key.
     combined_client_symmetric_key_client_public_key = combine_client_symmetric_key_client_rsa_public_key(
         client_symmetric_key_part, rsa_asymmetric_public_key)
@@ -338,13 +332,13 @@ def call_tib_api(method_name, api_request_body):
     # - decrypt data with client side RSA key
     decrypted_server_side_generated_symmetric_key = decrypt_msg_with_private_key(decoded_symmetric_host_half_key,
                                                                                  key_pair)
-    
+
     # 8) Combine symmetric keys.
     combined_symmetric_keys = list(client_symmetric_key_part) + decrypted_server_side_generated_symmetric_key
     combined_symmetric_keys = bytes(combined_symmetric_keys)
-    
+
     # 9) Perform the desired call.
-    # -  Encrypt the request payload using full symmetric key 
+    # -  Encrypt the request payload using full symmetric key
     base64_iv, base64_cipher_text = encrypt_msg_using_symmetric_key(combined_symmetric_keys, api_request_body)
 
     # - Prepared Encrypted request body
@@ -364,7 +358,7 @@ def call_tib_api(method_name, api_request_body):
         encrypted_base64_data = base64.b64decode(encrypted_base64_data)
         iv = api_response_encrypted.get('IV')
         iv = bytes(iv)
-        
+
         decrypted_response = decrypt_cipher_text_using_symmetric_key(combined_symmetric_keys, iv, encrypted_base64_data)
         return decrypted_response
     else:

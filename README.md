@@ -1,6 +1,6 @@
 # TIB Finance Python SDK
 
-![PyPI](https://img.shields.io/badge/python-3.7%2B-blue)
+![PyPI](https://img.shields.io/badge/python-3.8%2B-blue)
 
 Python SDK for the TIB Finance payment processing API.
 
