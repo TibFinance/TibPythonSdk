@@ -7,12 +7,6 @@ Python SDK for the TIB Finance payment processing API.
 ## Installation
 
 ```bash
-pip install tib-finance
-```
-
-Or install from source:
-
-```bash
 git clone https://github.com/TibFinance/TibPythonSdk.git
 cd TibPythonSdk
 pip install .
