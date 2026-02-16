@@ -97,7 +97,7 @@ def public_key_to_xml(pem_public_key):
     Parameters
     ----------
     pem_public_key : object, required
-        The RSA public ley PEM
+        The RSA public key PEM
     
     Returns
     -------
@@ -231,7 +231,7 @@ def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
 
 
 def make_api_call_with_encrypted_body(method_name, request_body):
-    """Perfom encrypted API call with server
+    """Perform encrypted API call with server
     
     Parameters
     ----------

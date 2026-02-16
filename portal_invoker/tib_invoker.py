@@ -142,7 +142,7 @@ class Portal:
     @staticmethod
     def getServiceBoardingStatus(getServiceBoardingStatusArgs):
         """
-            Retrieves a list of merchants who have completed the boarding process. This function is essential for monitoring and managing merchant onboarding statuses within the system.
+            Gets the boarding status for a service.
             Parameters
             ----------
             getServiceBoardingStatusArgs : GetServiceBoardingStatusArgs, required
@@ -844,7 +844,7 @@ class Portal:
     @staticmethod
     def listTransfersFast(listTransfersFastArgs):
         """
-            Lists the transfers.
+            Lists the transfers using an optimized fast query.
             Parameters
             ----------
             listTransfersFastArgs : ListTransfersFastArgs, required
@@ -870,7 +870,7 @@ class Portal:
     @staticmethod
     def listTransfersForBillFast(listTransfersForBillFastArgs):
         """
-            Lists the transfers of a bill.
+            Lists the transfers for a specific bill using an optimized fast query.
             Parameters
             ----------
             listTransfersForBillFastArgs : ListTransfersForBillFastArgs, required
