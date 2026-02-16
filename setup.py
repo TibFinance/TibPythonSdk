@@ -14,6 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     license="MIT",
     packages=find_packages(),
+    python_requires='>=3.8',
     install_requires=['pycryptodome', 'requests'],
     classifiers=[
         "Development Status :: 5 - Production/Stable",

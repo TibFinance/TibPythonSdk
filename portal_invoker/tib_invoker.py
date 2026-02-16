@@ -90,7 +90,7 @@ class Portal:
     @staticmethod
     def getWalletInformationsByService(getWalletInformationsArgs):
         """
-            Gets the service.
+            Retrieves wallet information for a specific service.
             Parameters
             ----------
             getWalletInformationsArgs : GetWalletInformationsArgs, required
@@ -350,7 +350,7 @@ class Portal:
     @staticmethod
     def adjustWallet(adjustWalletArgs):
         """
-            Retrieves a list of customers associated with a merchant account.
+            Adjusts the balance of a wallet by adding or removing funds.
             Parameters
             ----------
             adjustWalletArgs : AdjustWalletArgs, required
@@ -1364,7 +1364,7 @@ class Portal:
     @staticmethod
     def createSupplierTransfer(createSupplierTransferArgs):
         """
-            
+            Creates a transfer to a supplier.
             Parameters
             ----------
             createSupplierTransferArgs : CreateSupplierTransferArgs, required
@@ -1390,7 +1390,7 @@ class Portal:
     @staticmethod
     def getSuppliers(getSuppliersArgs):
         """
-            
+            Retrieves the list of suppliers associated with a merchant.
             Parameters
             ----------
             getSuppliersArgs : GetSuppliersArgs, required
@@ -1416,7 +1416,7 @@ class Portal:
     @staticmethod
     def createSupplier(createSupplierArgs):
         """
-            
+            Creates a new supplier associated with a merchant.
             Parameters
             ----------
             createSupplierArgs : CreateSupplierArgs, required
@@ -1442,7 +1442,7 @@ class Portal:
     @staticmethod
     def getWalletOperations(getWalletOperationsArgs):
         """
-            
+            Retrieves wallet operations and transaction history for a specified service within a date range.
             Parameters
             ----------
             getWalletOperationsArgs : GetWalletOperationsArgs, required
