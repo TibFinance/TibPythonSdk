@@ -8,4 +8,7 @@ class AutorizedPaymentMethodFlags(enum.Enum):
     CreditCardPPA = 4
     DirectAccountPPA = 8
     Interac = 16
+    CreditCardVisa = 32
+    CreditCardMastercard = 64
+    CreditCardAmex = 128
 

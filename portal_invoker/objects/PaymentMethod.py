@@ -15,6 +15,7 @@ class PaymentMethod:
             self.AccountPreview = None
             self.ExpirationDate = None
             self.Owner = None
+            self.CcType = None
             self.PreauthorizedMerchants = None
 
         else:
@@ -27,6 +28,7 @@ class PaymentMethod:
             self.AccountPreview = getattr(obj, 'AccountPreview', None)
             self.ExpirationDate = getattr(obj, 'ExpirationDate', None)
             self.Owner = getattr(obj, 'Owner', None)
+            self.CcType = getattr(obj, 'CcType', None)
 
             self.PreauthorizedMerchants = []
             if hasattr(obj, 'PreauthorizedMerchants') and obj.PreauthorizedMerchants is not None:

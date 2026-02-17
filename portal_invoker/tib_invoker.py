@@ -844,7 +844,7 @@ class Portal:
     @staticmethod
     def listTransfersFast(listTransfersFastArgs):
         """
-            Lists the transfers using an optimized fast query.
+            Lists transfers using an optimized fast query.
             Parameters
             ----------
             listTransfersFastArgs : ListTransfersFastArgs, required
@@ -870,7 +870,7 @@ class Portal:
     @staticmethod
     def listTransfersForBillFast(listTransfersForBillFastArgs):
         """
-            Lists the transfers for a specific bill using an optimized fast query.
+            Lists the transfers of a bill.
             Parameters
             ----------
             listTransfersForBillFastArgs : ListTransfersForBillFastArgs, required
@@ -1390,7 +1390,7 @@ class Portal:
     @staticmethod
     def getSuppliers(getSuppliersArgs):
         """
-            Retrieves the list of suppliers associated with a merchant.
+            Retrieves the list of suppliers for a merchant.
             Parameters
             ----------
             getSuppliersArgs : GetSuppliersArgs, required
@@ -1416,7 +1416,7 @@ class Portal:
     @staticmethod
     def createSupplier(createSupplierArgs):
         """
-            Creates a new supplier associated with a merchant.
+            Creates a new supplier for a merchant.
             Parameters
             ----------
             createSupplierArgs : CreateSupplierArgs, required
@@ -1442,7 +1442,7 @@ class Portal:
     @staticmethod
     def getWalletOperations(getWalletOperationsArgs):
         """
-            Retrieves wallet operations and transaction history for a specified service within a date range.
+            Retrieves wallet operations and transaction history for a merchant.
             Parameters
             ----------
             getWalletOperationsArgs : GetWalletOperationsArgs, required
