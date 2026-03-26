@@ -24,6 +24,7 @@ class CreateFreeOperationArgs:
             self.TransferDescription = None
             self.TransferExternalSystemNumber = None
             self.TransferFrequency = None
+            self.RecurringEndDate = None
             self.GroupId = None
             self.ImmediateTransfer = None
             self.StatementDescription = None
@@ -45,6 +46,7 @@ class CreateFreeOperationArgs:
             self.TransferDescription = getattr(obj, 'TransferDescription', None)
             self.TransferExternalSystemNumber = getattr(obj, 'TransferExternalSystemNumber', None)
             self.TransferFrequency = TransferFrequency(getattr(obj, 'TransferFrequency', None)) if getattr(obj, 'TransferFrequency', None) is not None else None
+            self.RecurringEndDate = getattr(obj, 'RecurringEndDate', None)
             self.GroupId = getattr(obj, 'GroupId', None)
             self.ImmediateTransfer = getattr(obj, 'ImmediateTransfer', None)
             self.StatementDescription = getattr(obj, 'StatementDescription', None)

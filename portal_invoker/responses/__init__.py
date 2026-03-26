@@ -23,6 +23,7 @@ from .DeleteMerchantResponse import DeleteMerchantResponse
 from .DeletePaymentMethodResponse import DeletePaymentMethodResponse
 from .DeletePaymentResponse import DeletePaymentResponse
 from .DeleteRecuringTransferResponse import DeleteRecuringTransferResponse
+from .DeleteSupplierResponse import DeleteSupplierResponse
 from .ForcePaymentProcessResponse import ForcePaymentProcessResponse
 from .GetBillResponse import GetBillResponse
 from .GetCustomerResponse import GetCustomerResponse
@@ -45,6 +46,7 @@ from .ListExecutedOperationsResponse import ListExecutedOperationsResponse
 from .ListMerchantsResponse import ListMerchantsResponse
 from .ListPaymentMethodsResponse import ListPaymentMethodsResponse
 from .ListServicesResponse import ListServicesResponse
+from .ListSuppliersResponse import ListSuppliersResponse
 from .ListTransfersFastResponse import ListTransfersFastResponse
 from .ListTransfersResponse import ListTransfersResponse
 from .RelaunchMerchantFailedTransferResponse import RelaunchMerchantFailedTransferResponse
@@ -54,3 +56,4 @@ from .RevertTransferResponse import RevertTransferResponse
 from .SaveCustomerResponse import SaveCustomerResponse
 from .SaveMerchantResponse import SaveMerchantResponse
 from .SetDefaultPaymentMethodResponse import SetDefaultPaymentMethodResponse
+from .UpdateSupplierAliasResponse import UpdateSupplierAliasResponse

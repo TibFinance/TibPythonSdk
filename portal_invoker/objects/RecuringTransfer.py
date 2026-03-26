@@ -24,6 +24,7 @@ class RecuringTransfer:
             self.TrasnferTitle = None
             self.TrasnferDescription = None
             self.TrasnferExternalSystemNumber = None
+            self.EndDate = None
 
         else:
             
@@ -42,5 +43,6 @@ class RecuringTransfer:
             self.TrasnferTitle = getattr(obj, 'TrasnferTitle', None)
             self.TrasnferDescription = getattr(obj, 'TrasnferDescription', None)
             self.TrasnferExternalSystemNumber = getattr(obj, 'TrasnferExternalSystemNumber', None)
+            self.EndDate = getattr(obj, 'EndDate', None)
 
 

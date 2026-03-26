@@ -1440,6 +1440,84 @@ class Portal:
         return api_response
 
     @staticmethod
+    def listSuppliers(listSuppliersArgs):
+        """
+            
+            Parameters
+            ----------
+            listSuppliersArgs : ListSuppliersArgs, required
+
+            Returns
+            -------
+            ListSuppliersResponse : ListSuppliersResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(listSuppliersArgs)
+        api_response = call_tib_api(method_name='ListSuppliers', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = ListSuppliersResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def updateSupplierAlias(updateSupplierAliasArgs):
+        """
+            
+            Parameters
+            ----------
+            updateSupplierAliasArgs : UpdateSupplierAliasArgs, required
+
+            Returns
+            -------
+            UpdateSupplierAliasResponse : UpdateSupplierAliasResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(updateSupplierAliasArgs)
+        api_response = call_tib_api(method_name='UpdateSupplierAlias', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = UpdateSupplierAliasResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def deleteSupplier(deleteSupplierArgs):
+        """
+            
+            Parameters
+            ----------
+            deleteSupplierArgs : DeleteSupplierArgs, required
+
+            Returns
+            -------
+            DeleteSupplierResponse : DeleteSupplierResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(deleteSupplierArgs)
+        api_response = call_tib_api(method_name='DeleteSupplier', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = DeleteSupplierResponse(api_response)
+        return api_response
+
+    @staticmethod
     def getWalletOperations(getWalletOperationsArgs):
         """
             Retrieves wallet operations and transaction history for a merchant.

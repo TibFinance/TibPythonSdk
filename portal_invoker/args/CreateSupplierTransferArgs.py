@@ -18,6 +18,7 @@ class CreateSupplierTransferArgs:
             self.Currency = None
             self.Language = None
             self.TransferFrequency = None
+            self.RecurringEndDate = None
             self.BillNumber = None
             self.BillDescription = None
             self.BillTitle = None
@@ -32,6 +33,7 @@ class CreateSupplierTransferArgs:
             self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
             self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
             self.TransferFrequency = TransferFrequency(getattr(obj, 'TransferFrequency', None)) if getattr(obj, 'TransferFrequency', None) is not None else None
+            self.RecurringEndDate = getattr(obj, 'RecurringEndDate', None)
             self.BillNumber = getattr(obj, 'BillNumber', None)
             self.BillDescription = getattr(obj, 'BillDescription', None)
             self.BillTitle = getattr(obj, 'BillTitle', None)

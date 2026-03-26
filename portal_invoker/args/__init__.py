@@ -22,6 +22,7 @@ from .DeleteMerchantArgs import DeleteMerchantArgs
 from .DeletePaymentArgs import DeletePaymentArgs
 from .DeletePaymentMethodArgs import DeletePaymentMethodArgs
 from .DeleteRecuringTransferArgs import DeleteRecuringTransferArgs
+from .DeleteSupplierArgs import DeleteSupplierArgs
 from .ForcePaymentProcessArgs import ForcePaymentProcessArgs
 from .GetBillArgs import GetBillArgs
 from .GetCustomerArgs import GetCustomerArgs
@@ -44,6 +45,7 @@ from .ListExecutedOperationsArgs import ListExecutedOperationsArgs
 from .ListMerchantsArgs import ListMerchantsArgs
 from .ListPaymentMethodsArgs import ListPaymentMethodsArgs
 from .ListServicesArgs import ListServicesArgs
+from .ListSuppliersArgs import ListSuppliersArgs
 from .ListTransfersArgs import ListTransfersArgs
 from .ListTransfersFastArgs import ListTransfersFastArgs
 from .ListTransfersForBillFastArgs import ListTransfersForBillFastArgs
@@ -55,3 +57,4 @@ from .SaveMerchantAccountInfoArgs import SaveMerchantAccountInfoArgs
 from .SaveMerchantArgs import SaveMerchantArgs
 from .SaveMerchantBasicInfoArgs import SaveMerchantBasicInfoArgs
 from .SetDefaultPaymentMethodArgs import SetDefaultPaymentMethodArgs
+from .UpdateSupplierAliasArgs import UpdateSupplierAliasArgs

@@ -28,6 +28,7 @@ from .ServiceFeeSettings import ServiceFeeSettings
 from .Service import Service
 from .ServiceSettings import ServiceSettings
 from .ServiceWithMerchant import ServiceWithMerchant
+from .SupplierView import SupplierView
 from .TransactionCommon import TransactionCommon
 from .TransferBaseInformationEntity import TransferBaseInformationEntity
 from .TwoFactorSetupData import TwoFactorSetupData
