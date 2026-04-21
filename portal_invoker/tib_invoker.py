@@ -12,7 +12,7 @@ class Portal:
     @staticmethod
     def createSession(createSessionArgs):
         """
-            The CreateSession function is purposed to establish a fresh session, thereby ensuring a secure and distinct environment for user activities.
+            Creates an authenticated session for a TIB Finance client.
             Parameters
             ----------
             createSessionArgs : CreateSessionArgs, required
@@ -38,7 +38,7 @@ class Portal:
     @staticmethod
     def listServices(listServicesArgs):
         """
-            Retrieves the full list of services that are available to the authenticated client.
+            Retrieves the list of service contracts associated with the authenticated merchant.
             Parameters
             ----------
             listServicesArgs : ListServicesArgs, required
@@ -64,7 +64,7 @@ class Portal:
     @staticmethod
     def getService(getServiceArgs):
         """
-            Retrieves the details of a specified service within the TIB Finance API. This function is essential for accessing service-related information, which is crucial for managing contracts and determining applicable limits and fees.
+            Retrieves the details of a specific Service (contract) for the authenticated client.
             Parameters
             ----------
             getServiceArgs : GetServiceArgs, required
@@ -90,7 +90,7 @@ class Portal:
     @staticmethod
     def getWalletInformationsByService(getWalletInformationsArgs):
         """
-            Retrieves wallet information for a specific service.
+            Retrieves the wallet state for a specific service.
             Parameters
             ----------
             getWalletInformationsArgs : GetWalletInformationsArgs, required
@@ -116,7 +116,7 @@ class Portal:
     @staticmethod
     def listMerchants(listMerchantsArgs):
         """
-            Retrieves a list of all merchants associated with the client's account. This function is essential for managing and accessing merchant-specific data within the API.
+            Retrieves a list of merchant accounts accessible to the authenticated session.
             Parameters
             ----------
             listMerchantsArgs : ListMerchantsArgs, required
@@ -142,7 +142,7 @@ class Portal:
     @staticmethod
     def getServiceBoardingStatus(getServiceBoardingStatusArgs):
         """
-            Gets the boarding status for a service.
+            Retrieves the boarding status of all merchants associated with a specific service.
             Parameters
             ----------
             getServiceBoardingStatusArgs : GetServiceBoardingStatusArgs, required
@@ -168,7 +168,7 @@ class Portal:
     @staticmethod
     def createMerchant(createMerchantArgs):
         """
-            Initiates the creation of a new merchant account within the TIB Finance system. This function is essential for setting up a merchant's basic and account information, which is a prerequisite for conducting transactions.
+            Creates a new merchant (bank account) for the client.
             Parameters
             ----------
             createMerchantArgs : CreateMerchantArgs, required
@@ -194,7 +194,7 @@ class Portal:
     @staticmethod
     def getMerchant(getMerchantArgs):
         """
-            Retrieves detailed information about a specific merchant using the provided merchant ID. This function is essential for accessing the merchant's basic and account information necessary for transaction processing.
+            Retrieves the details of a merchant by its GUID.
             Parameters
             ----------
             getMerchantArgs : GetMerchantArgs, required
@@ -220,7 +220,7 @@ class Portal:
     @staticmethod
     def saveMerchant(saveMerchantArgs):
         """
-            Persists a merchant entity to the TIB Finance system.
+            Updates or creates a merchant record in TIB Finance.
             Parameters
             ----------
             saveMerchantArgs : SaveMerchantArgs, required
@@ -246,7 +246,7 @@ class Portal:
     @staticmethod
     def saveMerchantBasicInfo(saveMerchantBasicInfoArgs):
         """
-            This function saves the basic information of a merchant. It is used to update or create the initial details associated with a merchant account within the TIB Finance API system.
+            Updates the basic profile data of an existing merchant.
             Parameters
             ----------
             saveMerchantBasicInfoArgs : SaveMerchantBasicInfoArgs, required
@@ -272,7 +272,7 @@ class Portal:
     @staticmethod
     def saveMerchantAccountInfo(saveMerchantAccountInfoArgs):
         """
-            Stores the merchant's account details securely in the system.
+            Saves or updates a merchant's bank account information.
             Parameters
             ----------
             saveMerchantAccountInfoArgs : SaveMerchantAccountInfoArgs, required
@@ -298,7 +298,7 @@ class Portal:
     @staticmethod
     def deleteMerchant(deleteMerchantArgs):
         """
-            Removes a specified merchant from the system. This operation is irreversible and will permanently delete the merchant's data, including all associated accounts and transactions.
+            Deletes a merchant (bank account) identified by its GUID.
             Parameters
             ----------
             deleteMerchantArgs : DeleteMerchantArgs, required
@@ -324,7 +324,7 @@ class Portal:
     @staticmethod
     def getMerchantsByExternalId(getMerchantsByExternalIdArgs):
         """
-            Retrieves merchant information using an external identifier. This function is essential for accessing merchant details that are linked to a specific external ID, facilitating seamless integration with external systems.
+            Retrieves TIB merchant records that match a given external system identifier.
             Parameters
             ----------
             getMerchantsByExternalIdArgs : GetMerchantsByExternalIdArgs, required
@@ -350,7 +350,7 @@ class Portal:
     @staticmethod
     def adjustWallet(adjustWalletArgs):
         """
-            Adjusts the balance of a wallet by adding or removing funds.
+            Adjusts the merchant's wallet balance by the specified amount.
             Parameters
             ----------
             adjustWalletArgs : AdjustWalletArgs, required
@@ -376,7 +376,7 @@ class Portal:
     @staticmethod
     def listCustomers(listCustomersArgs):
         """
-            Generates a comprehensive list of all customers based on specified criteria, providing a complete overview of the customer base.
+            Retrieves a list of customer objects associated with the specified merchant.
             Parameters
             ----------
             listCustomersArgs : ListCustomersArgs, required
@@ -402,7 +402,7 @@ class Portal:
     @staticmethod
     def createCustomer(createCustomerArgs):
         """
-            Creates a new customer entity within the system. This function initializes a customer object, which serves as a container for identifying the individual and associating payment methods.
+            Creates a new Customer object in TIB Finance.
             Parameters
             ----------
             createCustomerArgs : CreateCustomerArgs, required
@@ -428,7 +428,7 @@ class Portal:
     @staticmethod
     def getCustomer(getCustomerArgs):
         """
-            Retrieves detailed information about a specific customer based on the provided customer identifier. This function is essential for accessing customer data necessary for transaction processing and account management.
+            Retrieves details of a specific customer.
             Parameters
             ----------
             getCustomerArgs : GetCustomerArgs, required
@@ -454,7 +454,7 @@ class Portal:
     @staticmethod
     def saveCustomer(saveCustomerArgs):
         """
-            Persists the customer data to the database, ensuring that all necessary customer information is stored for future transactions.
+            Creates or updates a customer record in TIB Finance.
             Parameters
             ----------
             saveCustomerArgs : SaveCustomerArgs, required
@@ -480,7 +480,7 @@ class Portal:
     @staticmethod
     def deleteCustomer(deleteCustomerArgs):
         """
-            Removes a customer from the system based on the provided customer ID. This operation is irreversible and ensures that all associated data with the customer is permanently deleted.
+            Deletes a customer record from the TIB Finance system.
             Parameters
             ----------
             deleteCustomerArgs : DeleteCustomerArgs, required
@@ -506,7 +506,7 @@ class Portal:
     @staticmethod
     def getCustomersByExternalId(getCustomersByExternalIdArgs):
         """
-            Retrieves customer information using an external identifier. This function is essential for accessing customer data linked to a specific external ID, which is useful for integration with external systems.
+            Retrieves one or more TIB Finance customers matching a given external identifier.
             Parameters
             ----------
             getCustomersByExternalIdArgs : GetCustomersByExternalIdArgs, required
@@ -532,7 +532,7 @@ class Portal:
     @staticmethod
     def listPaymentMethods(listPaymentMethodsArgs):
         """
-            Retrieves a list of available payment methods associated with a customer. This function is essential for accessing and managing the various financial accounts linked to a customer, such as credit cards, bank accounts, and Interac. It is particularly useful for applications that need to display or process customer payment options.
+            Retrieves all payment methods associated with a specific customer under a given merchant.
             Parameters
             ----------
             listPaymentMethodsArgs : ListPaymentMethodsArgs, required
@@ -558,7 +558,7 @@ class Portal:
     @staticmethod
     def createCreditCardPaymentMethod(createCreditCardPaymentMethodArgs):
         """
-            Initializes a new credit card payment method for a customer. This function is essential for enabling transactions using a customer's credit card within the TIB Finance API. It securely stores the credit card details and associates them with the customer's account.
+            Creates a new credit‑card payment method for a specified customer.
             Parameters
             ----------
             createCreditCardPaymentMethodArgs : CreateCreditCardPaymentMethodArgs, required
@@ -584,7 +584,7 @@ class Portal:
     @staticmethod
     def createDirectAccountPaymentMethod(createDirectAccountPaymentMethodArgs):
         """
-            Initializes a new direct account payment method for a customer. This function facilitates the creation of a payment method linked directly to a customer's bank account, allowing for seamless transactions.
+            Creates a bank‑account payment method linked directly to a customer.
             Parameters
             ----------
             createDirectAccountPaymentMethodArgs : CreateDirectAccountPaymentMethodArgs, required
@@ -610,7 +610,7 @@ class Portal:
     @staticmethod
     def createInteracPaymentMethod(createInteracPaymentMethodArgs):
         """
-            This function initializes and creates a new Interac payment method for a customer. It allows the merchant to facilitate transactions using the Interac network, which is a popular method for electronic funds transfers in Canada.
+            Creates an Interac payment method for a specified customer.
             Parameters
             ----------
             createInteracPaymentMethodArgs : CreateInteracPaymentMethodArgs, required
@@ -636,7 +636,7 @@ class Portal:
     @staticmethod
     def getPaymentMethod(getPaymentMethodArgs):
         """
-            Retrieves the details of a specific payment method associated with a customer. This function is essential for accessing payment method information, which can include credit cards, bank accounts, or Interac details.
+            Retrieves the details of a specific payment method.
             Parameters
             ----------
             getPaymentMethodArgs : GetPaymentMethodArgs, required
@@ -662,7 +662,7 @@ class Portal:
     @staticmethod
     def deletePaymentMethod(deletePaymentMethodArgs):
         """
-            Removes a specified payment method from the system. This function is typically used to delete a customer's payment method that is no longer needed or valid.
+            Deletes a specific payment method from a customer profile.
             Parameters
             ----------
             deletePaymentMethodArgs : DeletePaymentMethodArgs, required
@@ -688,7 +688,7 @@ class Portal:
     @staticmethod
     def setDefaultPaymentMethod(setDefaultPaymentMethodArgs):
         """
-            Sets the default payment method for a customer. This function assigns a specified payment method as the primary option for transactions, ensuring that it is used by default unless another method is specified.
+            Sets the default payment method for a specified customer.
             Parameters
             ----------
             setDefaultPaymentMethodArgs : SetDefaultPaymentMethodArgs, required
@@ -714,7 +714,7 @@ class Portal:
     @staticmethod
     def listBills(listBillsArgs):
         """
-            Retrieves a list of all bills associated with the client's account. This function is essential for managing and reviewing billing information within the system.
+            Retrieves a collection of bills created within a specified time range.
             Parameters
             ----------
             listBillsArgs : ListBillsArgs, required
@@ -740,7 +740,7 @@ class Portal:
     @staticmethod
     def createBill(createBillArgs):
         """
-            Initiates the creation of a bill within the system. This function generates a unique Bill ID, which can be used for subsequent operations related to the bill.
+            Creates a new bill record in TIB Finance.
             Parameters
             ----------
             createBillArgs : CreateBillArgs, required
@@ -766,7 +766,7 @@ class Portal:
     @staticmethod
     def getBill(getBillArgs):
         """
-            Retrieves a bill based on the provided criteria. This function is essential for accessing detailed billing information within the API, facilitating further operations such as payment processing or bill management.
+            Retrieves details of a specific bill.
             Parameters
             ----------
             getBillArgs : GetBillArgs, required
@@ -792,7 +792,7 @@ class Portal:
     @staticmethod
     def deleteBill(deleteBillArgs):
         """
-            Removes a specified bill from the system. This operation is typically used when a bill is no longer needed or was created in error. Ensure that the bill ID is valid and corresponds to an existing bill before attempting to delete.
+            Deletes a previously created bill.
             Parameters
             ----------
             deleteBillArgs : DeleteBillArgs, required
@@ -818,7 +818,7 @@ class Portal:
     @staticmethod
     def listTransfers(listTransfersArgs):
         """
-            Retrieves a list of all transfer operations available within the system. This function provides details about each transfer, including status and associated metadata.
+            Retrieves a paginated list of transfer records matching the supplied filters.
             Parameters
             ----------
             listTransfersArgs : ListTransfersArgs, required
@@ -844,7 +844,7 @@ class Portal:
     @staticmethod
     def listTransfersFast(listTransfersFastArgs):
         """
-            Lists transfers using an optimized fast query.
+            Retrieves a filtered, summarized list of transfer records for a specified service.
             Parameters
             ----------
             listTransfersFastArgs : ListTransfersFastArgs, required
@@ -870,7 +870,7 @@ class Portal:
     @staticmethod
     def listTransfersForBillFast(listTransfersForBillFastArgs):
         """
-            Lists the transfers of a bill.
+            Retrieves all transfer records associated with a specific bill.
             Parameters
             ----------
             listTransfersForBillFastArgs : ListTransfersForBillFastArgs, required
@@ -896,7 +896,7 @@ class Portal:
     @staticmethod
     def getRecuringTransfers(getRecuringTransfersArgs):
         """
-            Retrieves a list of recurring transfer operations associated with the client's account. This function is essential for clients who need to manage or review their scheduled transfers.
+            Retrieves all active recurring transfers for a specified service.
             Parameters
             ----------
             getRecuringTransfersArgs : GetRecuringTransfersArgs, required
@@ -922,7 +922,7 @@ class Portal:
     @staticmethod
     def deleteRecuringTransfer(deleteRecuringTransferArgs):
         """
-            Deletes a recurring transfer from the system.
+            Deletes a recurring transfer and cancels all its future scheduled executions.
             Parameters
             ----------
             deleteRecuringTransferArgs : DeleteRecuringTransferArgs, required
@@ -948,7 +948,7 @@ class Portal:
     @staticmethod
     def createPayment(createPaymentArgs):
         """
-            Initiates a new payment transaction within the system. This function processes the payment details provided and returns a response indicating the success or failure of the operation.
+            Creates a payment associated with a specific bill.
             Parameters
             ----------
             createPaymentArgs : CreatePaymentArgs, required
@@ -974,7 +974,7 @@ class Portal:
     @staticmethod
     def getPayment(getPaymentArgs):
         """
-            Retrieves the details of a specific payment using the provided payment identifier.
+            Gets the payment.
             Parameters
             ----------
             getPaymentArgs : GetPaymentArgs, required
@@ -1000,7 +1000,7 @@ class Portal:
     @staticmethod
     def deletePayment(deletePaymentArgs):
         """
-            Removes a specified payment from the system. This function is essential for managing and rectifying payment records, ensuring that erroneous or obsolete payments are efficiently deleted.
+            Deletes the payment.
             Parameters
             ----------
             deletePaymentArgs : DeletePaymentArgs, required
@@ -1026,7 +1026,7 @@ class Portal:
     @staticmethod
     def createDirectInteracTransaction(createDirectInteracTransactionArgs):
         """
-            Initiates a direct Interac transaction, enabling the transfer of funds using a recipient's email or mobile phone number. This method facilitates seamless money transfers without requiring detailed customer account information.
+            Creates the direct Interac transaction
             Parameters
             ----------
             createDirectInteracTransactionArgs : CreateDirectInteracTransactionArgs, required
@@ -1052,7 +1052,7 @@ class Portal:
     @staticmethod
     def createTransactionFromRaw(createTransactionFromRawArgs):
         """
-            Initiates a transaction using raw data input. This function processes the raw transaction details to create a valid transaction entry within the system.
+            Creates the transaction from raw.
             Parameters
             ----------
             createTransactionFromRawArgs : CreateTransactionFromRawArgs, required
@@ -1078,7 +1078,7 @@ class Portal:
     @staticmethod
     def listExecutedOperations(listExecutedOperationsArgs):
         """
-            Retrieves a list of operations that have been executed within the system. This function provides detailed information about each operation, allowing users to track and analyze completed transactions.
+            Lists the executed operations.
             Parameters
             ----------
             listExecutedOperationsArgs : ListExecutedOperationsArgs, required
@@ -1104,7 +1104,7 @@ class Portal:
     @staticmethod
     def forcePaymentProcess(forcePaymentProcessArgs):
         """
-            Triggers the payment processing workflow for a specific payment, overriding the default automatic selection mechanism.
+            Forces the payment process.
             Parameters
             ----------
             forcePaymentProcessArgs : ForcePaymentProcessArgs, required
@@ -1130,7 +1130,7 @@ class Portal:
     @staticmethod
     def getDropInPublicToken(getDropInPublicTokenArgs):
         """
-            Retrieves the public token necessary for initiating a drop-in session. This token is used to authenticate and authorize the session within the API framework.
+            Gets the drop in public token.
             Parameters
             ----------
             getDropInPublicTokenArgs : GetDropInPublicTokenArgs, required
@@ -1156,7 +1156,7 @@ class Portal:
     @staticmethod
     def createFreeOperation(createFreeOperationArgs):
         """
-            Initiates a free operation within the TIB Finance API, allowing for transactions not directly linked to a specific bill. This function is typically used to either collect payments from a customer's payment method or deposit funds into it, with the exception of credit card deposits.
+            Creates the free operation.
             Parameters
             ----------
             createFreeOperationArgs : CreateFreeOperationArgs, required
@@ -1182,7 +1182,7 @@ class Portal:
     @staticmethod
     def createFreeOperationBatch(createFreeOperationBatchArgs):
         """
-            Initiates a batch of free operations, allowing for transactions not tied to a specific bill. This function is essential for handling payments or deposits directly linked to customer payment methods.
+            Creates a batch of free operations (deposits or collections) in a single call. Validates that client onboarding (KYC) is completed before allowing free deposit operations.
             Parameters
             ----------
             createFreeOperationBatchArgs : CreateFreeOperationBatchArgs, required
@@ -1208,7 +1208,7 @@ class Portal:
     @staticmethod
     def revertTransfer(revertTransferArgs):
         """
-            Reverts a previously executed transfer operation, restoring the original state of the involved accounts.
+            Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers.
             Parameters
             ----------
             revertTransferArgs : RevertTransferArgs, required
@@ -1234,7 +1234,7 @@ class Portal:
     @staticmethod
     def changeInteracPaymentMethodQuestionAndAnswer(changeInteracPaymentMethodQuestionAndAnswerArgs):
         """
-            Modifies the security question and answer for an Interac payment method associated with a customer account.
+            Updates the security question and answer on an existing Interac payment method. Creates a replacement payment method with the new credentials and deletes the old one. The answer is encrypted via the external data vault, and both question and answer are obfuscated in logs.
             Parameters
             ----------
             changeInteracPaymentMethodQuestionAndAnswerArgs : ChangeInteracPaymentMethodQuestionAndAnswerArgs, required
@@ -1260,7 +1260,7 @@ class Portal:
     @staticmethod
     def initBoarding(initBoardingArgs):
         """
-            Initializes the boarding process for a new client within the TIB Finance API.
+            Initializes the merchant onboarding (boarding) process for a service. Generates a public access token and returns a redirect URL to either the direct login page (if a service-level login exists) or the boarding sign-up wizard.
             Parameters
             ----------
             initBoardingArgs : InitBoardingArgs, required
@@ -1286,7 +1286,7 @@ class Portal:
     @staticmethod
     def createSubClient(createSubClientArgs):
         """
-            Creates a new sub-client within the TIB Finance system.
+            Creates a new sub-client (child service) under the authenticated client's account. The sub-client is represented as a service entity with its own name, language, and currency.
             Parameters
             ----------
             createSubClientArgs : CreateSubClientArgs, required
@@ -1312,7 +1312,7 @@ class Portal:
     @staticmethod
     def resendPaymentEmail(resendPaymentEmailArgs):
         """
-            Resends the payment notification email to the specified recipient.
+            Resends the payment notification email to the customer associated with a specific payment.
             Parameters
             ----------
             resendPaymentEmailArgs : ResendPaymentEmailArgs, required
@@ -1338,7 +1338,7 @@ class Portal:
     @staticmethod
     def relaunchMerchantFailedTransfer(relaunchMerchantFailedTransferArgs):
         """
-            Initiates a retry process for a merchant's failed transfer operation.
+            Relaunches (retries) a previously failed transfer for a merchant. Resets the failed payment in the database for reprocessing and sends an internal notification email with the transfer details.
             Parameters
             ----------
             relaunchMerchantFailedTransferArgs : RelaunchMerchantFailedTransferArgs, required
@@ -1364,7 +1364,7 @@ class Portal:
     @staticmethod
     def createSupplierTransfer(createSupplierTransferArgs):
         """
-            Creates a transfer to a supplier.
+            Creates a payment transfer from the calling merchant to a supplier. Validates both merchants, runs business rules on the sending merchant's limits, creates the transfer as a free collection, and optionally creates a bill. Notifies the supplier unless client approval is required.
             Parameters
             ----------
             createSupplierTransferArgs : CreateSupplierTransferArgs, required
@@ -1390,7 +1390,7 @@ class Portal:
     @staticmethod
     def getSuppliers(getSuppliersArgs):
         """
-            Retrieves the list of suppliers for a merchant.
+            Retrieves the list of suppliers associated with a merchant, returning each supplier's name and identifier.
             Parameters
             ----------
             getSuppliersArgs : GetSuppliersArgs, required
@@ -1416,7 +1416,7 @@ class Portal:
     @staticmethod
     def createSupplier(createSupplierArgs):
         """
-            Creates a new supplier for a merchant.
+            Creates or registers a supplier for a merchant. If a supplier with the given email already exists, reuses that supplier; otherwise provisions a new client, service, merchant, and login. Links the supplier to the calling merchant and creates a reciprocal customer record in the supplier's service.
             Parameters
             ----------
             createSupplierArgs : CreateSupplierArgs, required
@@ -1442,7 +1442,7 @@ class Portal:
     @staticmethod
     def listSuppliers(listSuppliersArgs):
         """
-            
+            Lists suppliers linked to the specified merchant, including detailed information such as supplier name, email address, and creation date. For a lightweight name-and-ID-only list, use GetSuppliers instead.
             Parameters
             ----------
             listSuppliersArgs : ListSuppliersArgs, required
@@ -1468,7 +1468,7 @@ class Portal:
     @staticmethod
     def updateSupplierAlias(updateSupplierAliasArgs):
         """
-            
+            Updates the display name (alias) that the payer uses to identify a supplier. The alias is a payer-side label and does not affect the supplier's own merchant name.
             Parameters
             ----------
             updateSupplierAliasArgs : UpdateSupplierAliasArgs, required
@@ -1494,7 +1494,7 @@ class Portal:
     @staticmethod
     def deleteSupplier(deleteSupplierArgs):
         """
-            
+            Soft-deletes a supplier link for the specified merchant. The supplier's merchant account is not affected â€” only the payer-to-supplier association is removed.
             Parameters
             ----------
             deleteSupplierArgs : DeleteSupplierArgs, required
@@ -1518,9 +1518,87 @@ class Portal:
         return api_response
 
     @staticmethod
+    def listSupplierTransfers(listSupplierTransfersArgs):
+        """
+            Lists supplier transfers initiated by the calling merchant (identified via FeeMerchantId). Returns transfers where the caller is the fee-payer, with optional datestatus filters.
+            Parameters
+            ----------
+            listSupplierTransfersArgs : ListSupplierTransfersArgs, required
+
+            Returns
+            -------
+            ListSupplierTransfersResponse : ListSupplierTransfersResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(listSupplierTransfersArgs)
+        api_response = call_tib_api(method_name='ListSupplierTransfers', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = ListSupplierTransfersResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def getSupplierTransfer(getSupplierTransferArgs):
+        """
+            Retrieves a single supplier transfer by ID. Accessible to both the fee-payer and the supplier. Returns the transfer details along with the counterparty name and the caller's role.
+            Parameters
+            ----------
+            getSupplierTransferArgs : GetSupplierTransferArgs, required
+
+            Returns
+            -------
+            GetSupplierTransferResponse : GetSupplierTransferResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(getSupplierTransferArgs)
+        api_response = call_tib_api(method_name='GetSupplierTransfer', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = GetSupplierTransferResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def listSupplierRecurringTransfers(listSupplierRecurringTransfersArgs):
+        """
+            Lists recurring supplier transfers initiated by the calling merchant. Returns recurring transfer configurations where the caller is the fee-payer.
+            Parameters
+            ----------
+            listSupplierRecurringTransfersArgs : ListSupplierRecurringTransfersArgs, required
+
+            Returns
+            -------
+            ListSupplierRecurringTransfersResponse : ListSupplierRecurringTransfersResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(listSupplierRecurringTransfersArgs)
+        api_response = call_tib_api(method_name='ListSupplierRecurringTransfers', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = ListSupplierRecurringTransfersResponse(api_response)
+        return api_response
+
+    @staticmethod
     def getWalletOperations(getWalletOperationsArgs):
         """
-            Retrieves wallet operations and transaction history for a merchant.
+            Retrieves wallet operation history for a service within a specified date range. Returns the list of daily operations, the wallet balance as of the start date, and the configured delay buffer amount.
             Parameters
             ----------
             getWalletOperationsArgs : GetWalletOperationsArgs, required

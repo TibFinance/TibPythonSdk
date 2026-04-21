@@ -26,6 +26,7 @@ class OperationKind(enum.Enum):
     GatewayUsageFee = 23
     SupportFee = 24
     WalletCollect = 25
+    CreditCardFailedCharge = 26
     GroupedFees = 100
     FeesRetransfer = 101
 

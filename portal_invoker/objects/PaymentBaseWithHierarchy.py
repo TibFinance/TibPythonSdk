@@ -14,6 +14,8 @@ class PaymentBaseWithHierarchy:
             self.MerchantExternalSystemGroupId = None
             self.MerchantName = None
             self.IsOverlodedMerchant = None
+            self.FeeMerchantId = None
+            self.IsPayerView = None
 
         else:
             
@@ -24,5 +26,7 @@ class PaymentBaseWithHierarchy:
             self.MerchantExternalSystemGroupId = getattr(obj, 'MerchantExternalSystemGroupId', None)
             self.MerchantName = getattr(obj, 'MerchantName', None)
             self.IsOverlodedMerchant = getattr(obj, 'IsOverlodedMerchant', None)
+            self.FeeMerchantId = getattr(obj, 'FeeMerchantId', None)
+            self.IsPayerView = getattr(obj, 'IsPayerView', None)
 
 

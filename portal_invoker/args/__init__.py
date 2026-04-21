@@ -36,6 +36,7 @@ from .GetRecuringTransfersArgs import GetRecuringTransfersArgs
 from .GetServiceArgs import GetServiceArgs
 from .GetServiceBoardingStatusArgs import GetServiceBoardingStatusArgs
 from .GetSuppliersArgs import GetSuppliersArgs
+from .GetSupplierTransferArgs import GetSupplierTransferArgs
 from .GetWalletInformationsArgs import GetWalletInformationsArgs
 from .GetWalletOperationsArgs import GetWalletOperationsArgs
 from .InitBoardingArgs import InitBoardingArgs
@@ -45,7 +46,9 @@ from .ListExecutedOperationsArgs import ListExecutedOperationsArgs
 from .ListMerchantsArgs import ListMerchantsArgs
 from .ListPaymentMethodsArgs import ListPaymentMethodsArgs
 from .ListServicesArgs import ListServicesArgs
+from .ListSupplierRecurringTransfersArgs import ListSupplierRecurringTransfersArgs
 from .ListSuppliersArgs import ListSuppliersArgs
+from .ListSupplierTransfersArgs import ListSupplierTransfersArgs
 from .ListTransfersArgs import ListTransfersArgs
 from .ListTransfersFastArgs import ListTransfersFastArgs
 from .ListTransfersForBillFastArgs import ListTransfersForBillFastArgs

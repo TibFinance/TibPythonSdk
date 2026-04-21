@@ -37,6 +37,7 @@ class TransferBaseInformationEntity:
             self.Refunded = None
             self.TransferAmount = None
             self.IsSupplierTransfer = None
+            self.SupplierAlias = None
             self.ern = None
 
         else:
@@ -71,6 +72,7 @@ class TransferBaseInformationEntity:
             self.Refunded = getattr(obj, 'Refunded', None)
             self.TransferAmount = getattr(obj, 'TransferAmount', None)
             self.IsSupplierTransfer = getattr(obj, 'IsSupplierTransfer', None)
+            self.SupplierAlias = getattr(obj, 'SupplierAlias', None)
             self.ern = getattr(obj, 'ern', None)
 
 

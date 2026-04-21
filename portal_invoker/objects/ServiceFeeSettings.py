@@ -42,6 +42,9 @@ class ServiceFeeSettings:
             self.InteracFeeCollectPercentage = None
             self.DebitNFSFees = None
             self.NFSFileFees = None
+            self.CreditCardFailedChargeFee = None
+            self.OppositionReturnFees = None
+            self.InteracReturnFee = None
             self.DataContext = None
 
         else:
@@ -76,6 +79,9 @@ class ServiceFeeSettings:
             self.InteracFeeCollectPercentage = getattr(obj, 'InteracFeeCollectPercentage', None)
             self.DebitNFSFees = getattr(obj, 'DebitNFSFees', None)
             self.NFSFileFees = getattr(obj, 'NFSFileFees', None)
+            self.CreditCardFailedChargeFee = getattr(obj, 'CreditCardFailedChargeFee', None)
+            self.OppositionReturnFees = getattr(obj, 'OppositionReturnFees', None)
+            self.InteracReturnFee = getattr(obj, 'InteracReturnFee', None)
             self.DataContext = getattr(obj, 'DataContext', None)
 
 

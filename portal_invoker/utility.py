@@ -1,9 +1,12 @@
 import json
 import re
+from datetime import datetime, date
 from enum import Enum
 
 
 def object2dict(model):
+    if isinstance(model, (datetime, date)):
+        return model.isoformat()
     if not hasattr(model, "__dict__"):
         return model
     if isinstance(model, Enum):
@@ -12,6 +15,8 @@ def object2dict(model):
     for key, val in model.__dict__.items():
         if key.startswith("_"):
             key = key.replace("_", "")
+        if val is None:
+            continue
         element = []
         if isinstance(val, list):
             for item in val:

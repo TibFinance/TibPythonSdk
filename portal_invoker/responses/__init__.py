@@ -37,6 +37,7 @@ from .GetRecuringTransfersResponse import GetRecuringTransfersResponse
 from .GetServiceBoardingStatusResponse import GetServiceBoardingStatusResponse
 from .GetServiceResponse import GetServiceResponse
 from .GetSuppliersResponse import GetSuppliersResponse
+from .GetSupplierTransferResponse import GetSupplierTransferResponse
 from .GetWalletInformationsResponse import GetWalletInformationsResponse
 from .GetWalletOperationsResponse import GetWalletOperationsResponse
 from .InitBoardingResponse import InitBoardingResponse
@@ -46,7 +47,9 @@ from .ListExecutedOperationsResponse import ListExecutedOperationsResponse
 from .ListMerchantsResponse import ListMerchantsResponse
 from .ListPaymentMethodsResponse import ListPaymentMethodsResponse
 from .ListServicesResponse import ListServicesResponse
+from .ListSupplierRecurringTransfersResponse import ListSupplierRecurringTransfersResponse
 from .ListSuppliersResponse import ListSuppliersResponse
+from .ListSupplierTransfersResponse import ListSupplierTransfersResponse
 from .ListTransfersFastResponse import ListTransfersFastResponse
 from .ListTransfersResponse import ListTransfersResponse
 from .RelaunchMerchantFailedTransferResponse import RelaunchMerchantFailedTransferResponse
