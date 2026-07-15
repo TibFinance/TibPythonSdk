@@ -16,10 +16,9 @@ class CreatePaymentResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.PaymentId = getattr(obj, 'PaymentId', None)
-                self.AutoSelectPaymentFlowResult = PaymentFlow(getattr(obj, 'AutoSelectPaymentFlowResult', None)) if getattr(obj, 'AutoSelectPaymentFlowResult', None) is not None else None
-                self.PaymentFlowParsingResult = PaymentFlowParsingResult(getattr(obj, 'PaymentFlowParsingResult', None)) if getattr(obj, 'PaymentFlowParsingResult', None) is not None else None
-                self.PaymentLink = getattr(obj, 'PaymentLink', None)
+            self.PaymentId = getattr(obj, 'PaymentId', None)
+            self.AutoSelectPaymentFlowResult = PaymentFlow(getattr(obj, 'AutoSelectPaymentFlowResult', None)) if getattr(obj, 'AutoSelectPaymentFlowResult', None) is not None else None
+            self.PaymentFlowParsingResult = PaymentFlowParsingResult(getattr(obj, 'PaymentFlowParsingResult', None)) if getattr(obj, 'PaymentFlowParsingResult', None) is not None else None
+            self.PaymentLink = getattr(obj, 'PaymentLink', None)
 
 

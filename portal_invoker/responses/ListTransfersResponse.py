@@ -12,10 +12,9 @@ class ListTransfersResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.Payments = []
-                if hasattr(obj, 'Payments') and obj.Payments is not None:
-                    self.Payments = [Payment(name) for name in  obj.Payments]
+            self.Payments = []
+            if hasattr(obj, 'Payments') and obj.Payments is not None:
+                self.Payments = [Payment(name) for name in  obj.Payments]
 
 

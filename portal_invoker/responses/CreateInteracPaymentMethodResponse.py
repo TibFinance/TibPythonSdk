@@ -11,7 +11,6 @@ class CreateInteracPaymentMethodResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.PaymentMethodId = getattr(obj, 'PaymentMethodId', None)
+            self.PaymentMethodId = getattr(obj, 'PaymentMethodId', None)
 
 

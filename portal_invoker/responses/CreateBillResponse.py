@@ -11,7 +11,6 @@ class CreateBillResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.BillId = getattr(obj, 'BillId', None)
+            self.BillId = getattr(obj, 'BillId', None)
 
 

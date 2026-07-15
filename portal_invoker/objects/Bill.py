@@ -14,7 +14,6 @@ class Bill(BillEntity):
 
         else:
             super().__init__(obj)
-
             self.BillId = getattr(obj, 'BillId', None)
             self.ConvenientFeeCreditCard = getattr(obj, 'ConvenientFeeCreditCard', None)
             self.ConvenientFeeDirectAccount = getattr(obj, 'ConvenientFeeDirectAccount', None)

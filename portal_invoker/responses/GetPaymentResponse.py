@@ -12,7 +12,6 @@ class GetPaymentResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.Payment = Payment(getattr(obj, 'Payment', None)) if getattr(obj, 'Payment', None) is not None else None
+            self.Payment = Payment(getattr(obj, 'Payment', None)) if getattr(obj, 'Payment', None) is not None else None
 
 

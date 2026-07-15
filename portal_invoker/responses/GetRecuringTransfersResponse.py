@@ -12,10 +12,9 @@ class GetRecuringTransfersResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.RecuringTransfers = []
-                if hasattr(obj, 'RecuringTransfers') and obj.RecuringTransfers is not None:
-                    self.RecuringTransfers = [RecuringTransfer(name) for name in  obj.RecuringTransfers]
+            self.RecuringTransfers = []
+            if hasattr(obj, 'RecuringTransfers') and obj.RecuringTransfers is not None:
+                self.RecuringTransfers = [RecuringTransfer(name) for name in  obj.RecuringTransfers]
 
 

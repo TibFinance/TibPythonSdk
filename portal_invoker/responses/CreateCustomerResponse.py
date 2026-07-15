@@ -12,8 +12,7 @@ class CreateCustomerResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.CustomerId = getattr(obj, 'CustomerId', None)
-                self.CustomerAlreadyExisted = getattr(obj, 'CustomerAlreadyExisted', None)
+            self.CustomerId = getattr(obj, 'CustomerId', None)
+            self.CustomerAlreadyExisted = getattr(obj, 'CustomerAlreadyExisted', None)
 
 

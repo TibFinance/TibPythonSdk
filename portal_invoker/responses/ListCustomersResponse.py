@@ -12,10 +12,9 @@ class ListCustomersResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.Customers = []
-                if hasattr(obj, 'Customers') and obj.Customers is not None:
-                    self.Customers = [Customer(name) for name in  obj.Customers]
+            self.Customers = []
+            if hasattr(obj, 'Customers') and obj.Customers is not None:
+                self.Customers = [Customer(name) for name in  obj.Customers]
 
 

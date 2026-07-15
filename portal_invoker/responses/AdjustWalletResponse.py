@@ -13,9 +13,8 @@ class AdjustWalletResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.TransferId = getattr(obj, 'TransferId', None)
-                self.WasSuccessful = getattr(obj, 'WasSuccessful', None)
-                self.RequiresSupplierBoarding = getattr(obj, 'RequiresSupplierBoarding', None)
+            self.TransferId = getattr(obj, 'TransferId', None)
+            self.WasSuccessful = getattr(obj, 'WasSuccessful', None)
+            self.RequiresSupplierBoarding = getattr(obj, 'RequiresSupplierBoarding', None)
 
 

@@ -11,7 +11,6 @@ class CreateTransactionFromRawResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.TransactionsGroupId = getattr(obj, 'TransactionsGroupId', None)
+            self.TransactionsGroupId = getattr(obj, 'TransactionsGroupId', None)
 
 

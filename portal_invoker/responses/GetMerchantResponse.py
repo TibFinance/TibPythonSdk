@@ -12,7 +12,6 @@ class GetMerchantResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.Merchant = MerchantView(getattr(obj, 'Merchant', None)) if getattr(obj, 'Merchant', None) is not None else None
+            self.Merchant = MerchantView(getattr(obj, 'Merchant', None)) if getattr(obj, 'Merchant', None) is not None else None
 
 

@@ -11,7 +11,6 @@ class RevertTransferResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.HasBeenDeleted = getattr(obj, 'HasBeenDeleted', None)
+            self.HasBeenDeleted = getattr(obj, 'HasBeenDeleted', None)
 
 

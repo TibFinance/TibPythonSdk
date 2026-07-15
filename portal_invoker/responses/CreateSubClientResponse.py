@@ -11,7 +11,6 @@ class CreateSubClientResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.ServiceId = getattr(obj, 'ServiceId', None)
+            self.ServiceId = getattr(obj, 'ServiceId', None)
 
 

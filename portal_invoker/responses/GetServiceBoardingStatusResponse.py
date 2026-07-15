@@ -13,11 +13,10 @@ class GetServiceBoardingStatusResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.ServiceId = getattr(obj, 'ServiceId', None)
+            self.ServiceId = getattr(obj, 'ServiceId', None)
 
-                self.BoardingServiceMerchants = []
-                if hasattr(obj, 'BoardingServiceMerchants') and obj.BoardingServiceMerchants is not None:
-                    self.BoardingServiceMerchants = [BoardingServiceMerchant(name) for name in  obj.BoardingServiceMerchants]
+            self.BoardingServiceMerchants = []
+            if hasattr(obj, 'BoardingServiceMerchants') and obj.BoardingServiceMerchants is not None:
+                self.BoardingServiceMerchants = [BoardingServiceMerchant(name) for name in  obj.BoardingServiceMerchants]
 
 

@@ -13,11 +13,10 @@ class ListServicesResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.Services = []
-                if hasattr(obj, 'Services') and obj.Services is not None:
-                    self.Services = [Service(name) for name in  obj.Services]
-                self.SkipClientApprobation = getattr(obj, 'SkipClientApprobation', None)
+            self.Services = []
+            if hasattr(obj, 'Services') and obj.Services is not None:
+                self.Services = [Service(name) for name in  obj.Services]
+            self.SkipClientApprobation = getattr(obj, 'SkipClientApprobation', None)
 
 

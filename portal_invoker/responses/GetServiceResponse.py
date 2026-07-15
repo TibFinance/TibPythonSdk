@@ -12,7 +12,6 @@ class GetServiceResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.Service = ServiceWithMerchant(getattr(obj, 'Service', None)) if getattr(obj, 'Service', None) is not None else None
+            self.Service = ServiceWithMerchant(getattr(obj, 'Service', None)) if getattr(obj, 'Service', None) is not None else None
 
 

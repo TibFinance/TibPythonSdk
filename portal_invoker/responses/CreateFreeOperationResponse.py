@@ -12,8 +12,7 @@ class CreateFreeOperationResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.PaymentId = getattr(obj, 'PaymentId', None)
-                self.ClientId = getattr(obj, 'ClientId', None)
+            self.PaymentId = getattr(obj, 'PaymentId', None)
+            self.ClientId = getattr(obj, 'ClientId', None)
 
 

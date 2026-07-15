@@ -12,10 +12,9 @@ class ListPaymentMethodsResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.PaymentMethods = []
-                if hasattr(obj, 'PaymentMethods') and obj.PaymentMethods is not None:
-                    self.PaymentMethods = [PaymentMethod(name) for name in  obj.PaymentMethods]
+            self.PaymentMethods = []
+            if hasattr(obj, 'PaymentMethods') and obj.PaymentMethods is not None:
+                self.PaymentMethods = [PaymentMethod(name) for name in  obj.PaymentMethods]
 
 

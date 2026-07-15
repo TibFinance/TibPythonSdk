@@ -52,14 +52,14 @@ def get_asymmetric_public_key_from_server():
         response json object containing public key from server
     """
     url = get_site_url() + "/Data/GetPublicKey"
-    response = requests.post(url, data=None)
+    response = requests.post(url, data=None, timeout=(30, 120))
     if response.status_code == 200:
         try:
             return json.loads(response.text)
         except Exception as e:
-            raise Exception("EncryptionProcessError")
+            raise Exception(f"EncryptionProcessError: expected JSON, got status {response.status_code}: {response.text[:200]}")
     else:
-        raise Exception("InternalServerError:", response.status_code)
+        raise Exception(f"InternalServerError: status {response.status_code}: {response.text[:200]}")
 
 
 def get_long(nodelist):
@@ -220,14 +220,14 @@ def perform_key_exchange(call_node, key_token, combined_key_encrypted_base64):
             }
     }
     url = get_site_url() + "/Data/ExecuteKeyExchange"
-    response = requests.post(url, json=request_payload)
+    response = requests.post(url, json=request_payload, timeout=(30, 120))
     if response.status_code == 200:
         try:
             return json.loads(response.text)
         except Exception as e:
-            raise Exception("EncryptionProcessError")
+            raise Exception(f"EncryptionProcessError: expected JSON, got status {response.status_code}: {response.text[:200]}")
     else:
-        raise Exception("InternalServerError:", response.status_code)
+        raise Exception(f"InternalServerError: status {response.status_code}: {response.text[:200]}")
 
 
 def make_api_call_with_encrypted_body(method_name, request_body):
@@ -246,7 +246,7 @@ def make_api_call_with_encrypted_body(method_name, request_body):
        Encrypted response from server
     """     
     url = get_site_url() + "/Data/"+method_name
-    response = requests.post(url, json=request_body)
+    response = requests.post(url, json=request_body, timeout=(30, 120))
     if response.status_code == 200:
         if response.text is None or response.text == '':
             return None
@@ -254,9 +254,9 @@ def make_api_call_with_encrypted_body(method_name, request_body):
             try:
                 return json.loads(response.text)
             except Exception as e:
-                raise Exception("EncryptionProcessError")
+                raise Exception(f"EncryptionProcessError: expected JSON, got status {response.status_code}: {response.text[:200]}")
     else:
-        raise Exception("InternalServerError:", response.status_code)
+        raise Exception(f"InternalServerError: status {response.status_code}: {response.text[:200]}")
 
 
 def call_tib_api(method_name, api_request_body):

@@ -12,6 +12,8 @@ cd TibPythonSdk
 pip install .
 ```
 
+Alternatively, download the prebuilt wheel (`.whl`) from the latest [GitHub release](https://github.com/TibFinance/TibPythonSdk/releases) and install it with `pip install <file>.whl`.
+
 ## Quick Start
 
 ```python
@@ -27,17 +29,21 @@ session_args.Username = "your_username"
 session_args.Password = "your_password"
 response = Portal.createSession(session_args)
 
-merchant_args = GetMerchantArgs()
-merchant_args.SessionToken = response.SessionId
-merchant_args.MerchantId = "your_merchant_id"
-merchant = Portal.getMerchant(merchant_args)
+# Always check the error flag before using the response payload
+if response.HasError:
+    print("Session failed:", response.Messages)
+else:
+    merchant_args = GetMerchantArgs()
+    merchant_args.SessionToken = response.SessionId
+    merchant_args.MerchantId = "your_merchant_id"
+    merchant = Portal.getMerchant(merchant_args)
 ```
 
 ## Documentation
 
 For the complete API reference and guides, visit [doc.tib.finance](https://doc.tib.finance).
 
-This SDK provides access to **56 API methods** for payment processing, merchant management, and financial operations.
+This SDK provides access to **62 API methods** for payment processing, merchant management, and financial operations.
 
 ## Other TIB Finance SDKs
 

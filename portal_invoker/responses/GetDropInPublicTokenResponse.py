@@ -11,7 +11,6 @@ class GetDropInPublicTokenResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.PublicTokenId = getattr(obj, 'PublicTokenId', None)
+            self.PublicTokenId = getattr(obj, 'PublicTokenId', None)
 
 

@@ -12,10 +12,9 @@ class GetWalletInformationsResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.Wallets = []
-                if hasattr(obj, 'Wallets') and obj.Wallets is not None:
-                    self.Wallets = [Wallet(name) for name in  obj.Wallets]
+            self.Wallets = []
+            if hasattr(obj, 'Wallets') and obj.Wallets is not None:
+                self.Wallets = [Wallet(name) for name in  obj.Wallets]
 
 

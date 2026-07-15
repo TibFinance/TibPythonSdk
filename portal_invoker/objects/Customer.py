@@ -11,7 +11,6 @@ class Customer(CustomerEntity):
 
         else:
             super().__init__(obj)
-
             self.CustomerId = getattr(obj, 'CustomerId', None)
 
 

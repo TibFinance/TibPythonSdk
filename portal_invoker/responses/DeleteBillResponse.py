@@ -10,6 +10,5 @@ class DeleteBillResponse(BaseApiResponse):
             pass
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                pass
+            pass
 

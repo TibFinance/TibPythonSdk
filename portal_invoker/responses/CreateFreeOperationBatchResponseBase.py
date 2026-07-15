@@ -16,11 +16,10 @@ class CreateFreeOperationBatchResponseBase(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.Status = getattr(obj, 'Status', None)
-                self.PaymentId = getattr(obj, 'PaymentId', None)
-                self.ReferenceNumber = getattr(obj, 'ReferenceNumber', None)
-                self.Message = getattr(obj, 'Message', None)
-                self.RequestDataResponse = RequestDataResponse(getattr(obj, 'RequestDataResponse', None)) if getattr(obj, 'RequestDataResponse', None) is not None else None
+            self.Status = getattr(obj, 'Status', None)
+            self.PaymentId = getattr(obj, 'PaymentId', None)
+            self.ReferenceNumber = getattr(obj, 'ReferenceNumber', None)
+            self.Message = getattr(obj, 'Message', None)
+            self.RequestDataResponse = RequestDataResponse(getattr(obj, 'RequestDataResponse', None)) if getattr(obj, 'RequestDataResponse', None) is not None else None
 
 

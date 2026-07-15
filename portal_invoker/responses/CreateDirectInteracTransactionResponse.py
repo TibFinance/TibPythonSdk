@@ -11,7 +11,6 @@ class CreateDirectInteracTransactionResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.TransferId = getattr(obj, 'TransferId', None)
+            self.TransferId = getattr(obj, 'TransferId', None)
 
 

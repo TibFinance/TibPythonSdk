@@ -11,10 +11,9 @@ class GetSuppliersResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.Suppliers = []
-                if hasattr(obj, 'Suppliers') and obj.Suppliers is not None:
-                    self.Suppliers = [name for name in obj.Suppliers]
+            self.Suppliers = []
+            if hasattr(obj, 'Suppliers') and obj.Suppliers is not None:
+                self.Suppliers = [name for name in obj.Suppliers]
 
 

@@ -12,10 +12,9 @@ class CreateFreeOperationBatchResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.CreateFreeOperationBatchResponses = []
-                if hasattr(obj, 'CreateFreeOperationBatchResponses') and obj.CreateFreeOperationBatchResponses is not None:
-                    self.CreateFreeOperationBatchResponses = [CreateFreeOperationBatchResponseBase(name) for name in  obj.CreateFreeOperationBatchResponses]
+            self.CreateFreeOperationBatchResponses = []
+            if hasattr(obj, 'CreateFreeOperationBatchResponses') and obj.CreateFreeOperationBatchResponses is not None:
+                self.CreateFreeOperationBatchResponses = [CreateFreeOperationBatchResponseBase(name) for name in  obj.CreateFreeOperationBatchResponses]
 
 

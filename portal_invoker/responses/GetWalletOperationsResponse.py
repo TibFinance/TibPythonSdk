@@ -14,12 +14,11 @@ class GetWalletOperationsResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.DailyOperations = []
-                if hasattr(obj, 'DailyOperations') and obj.DailyOperations is not None:
-                    self.DailyOperations = [WalletOperation(name) for name in  obj.DailyOperations]
-                self.BalanceBeforeOperations = getattr(obj, 'BalanceBeforeOperations', None)
-                self.DelayBufferAmount = getattr(obj, 'DelayBufferAmount', None)
+            self.DailyOperations = []
+            if hasattr(obj, 'DailyOperations') and obj.DailyOperations is not None:
+                self.DailyOperations = [WalletOperation(name) for name in  obj.DailyOperations]
+            self.BalanceBeforeOperations = getattr(obj, 'BalanceBeforeOperations', None)
+            self.DelayBufferAmount = getattr(obj, 'DelayBufferAmount', None)
 
 

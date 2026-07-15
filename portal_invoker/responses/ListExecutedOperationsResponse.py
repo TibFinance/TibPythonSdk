@@ -12,10 +12,9 @@ class ListExecutedOperationsResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.OperationList = []
-                if hasattr(obj, 'OperationList') and obj.OperationList is not None:
-                    self.OperationList = [FreeCollectionOperation(name) for name in  obj.OperationList]
+            self.OperationList = []
+            if hasattr(obj, 'OperationList') and obj.OperationList is not None:
+                self.OperationList = [FreeCollectionOperation(name) for name in  obj.OperationList]
 
 

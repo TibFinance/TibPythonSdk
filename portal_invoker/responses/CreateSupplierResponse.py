@@ -14,12 +14,11 @@ class CreateSupplierResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.SupplierId = getattr(obj, 'SupplierId', None)
-                self.SupplierName = getattr(obj, 'SupplierName', None)
+            self.SupplierId = getattr(obj, 'SupplierId', None)
+            self.SupplierName = getattr(obj, 'SupplierName', None)
 
-                self.MatchingExistingMerchants = []
-                if hasattr(obj, 'MatchingExistingMerchants') and obj.MatchingExistingMerchants is not None:
-                    self.MatchingExistingMerchants = [MerchantView(name) for name in  obj.MatchingExistingMerchants]
+            self.MatchingExistingMerchants = []
+            if hasattr(obj, 'MatchingExistingMerchants') and obj.MatchingExistingMerchants is not None:
+                self.MatchingExistingMerchants = [MerchantView(name) for name in  obj.MatchingExistingMerchants]
 
 

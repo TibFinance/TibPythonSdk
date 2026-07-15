@@ -11,7 +11,6 @@ class CreateMerchantResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.MerchantId = getattr(obj, 'MerchantId', None)
+            self.MerchantId = getattr(obj, 'MerchantId', None)
 
 

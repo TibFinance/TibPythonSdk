@@ -12,10 +12,9 @@ class ListSupplierRecurringTransfersResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
 
-                self.RecurringTransfers = []
-                if hasattr(obj, 'RecurringTransfers') and obj.RecurringTransfers is not None:
-                    self.RecurringTransfers = [RecuringTransfer(name) for name in  obj.RecurringTransfers]
+            self.RecurringTransfers = []
+            if hasattr(obj, 'RecurringTransfers') and obj.RecurringTransfers is not None:
+                self.RecurringTransfers = [RecuringTransfer(name) for name in  obj.RecurringTransfers]
 
 

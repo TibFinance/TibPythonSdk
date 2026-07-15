@@ -12,7 +12,6 @@ class GetCustomerResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.Customer = Customer(getattr(obj, 'Customer', None)) if getattr(obj, 'Customer', None) is not None else None
+            self.Customer = Customer(getattr(obj, 'Customer', None)) if getattr(obj, 'Customer', None) is not None else None
 
 

@@ -13,7 +13,6 @@ class Service(ServiceEntity):
 
         else:
             super().__init__(obj)
-
             self.ServiceId = getattr(obj, 'ServiceId', None)
 
             self.WhiteLabelingId = []

@@ -11,7 +11,6 @@ class InitBoardingResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            if not obj.HasError:
-                self.RedirectUrl = getattr(obj, 'RedirectUrl', None)
+            self.RedirectUrl = getattr(obj, 'RedirectUrl', None)
 
 
