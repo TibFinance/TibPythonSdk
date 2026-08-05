@@ -168,7 +168,7 @@ class Portal:
     @staticmethod
     def createMerchant(createMerchantArgs):
         """
-            Creates a new merchant (bank account) for the client.
+            Creates the merchant.
             Parameters
             ----------
             createMerchantArgs : CreateMerchantArgs, required
@@ -189,6 +189,32 @@ class Portal:
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = CreateMerchantResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def addBankAccount(addBankAccountArgs):
+        """
+            Adds a new bank account (i.e., new merchant in TIB's data model) to an existing fully-boarded service. Authorizes the new merchant on insert. One-shot semantic: no pending state, no approval workflow, no confirmation email. Owner and Currency are inherited from an active sibling merchant on the same service. This is a parallel path to CreateMerchant (which serves boarding's first-merchant insert).
+            Parameters
+            ----------
+            addBankAccountArgs : AddBankAccountArgs, required
+
+            Returns
+            -------
+            AddBankAccountResponse : AddBankAccountResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(addBankAccountArgs)
+        api_response = call_tib_api(method_name='AddBankAccount', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = AddBankAccountResponse(api_response)
         return api_response
 
     @staticmethod
@@ -220,7 +246,7 @@ class Portal:
     @staticmethod
     def saveMerchant(saveMerchantArgs):
         """
-            Updates or creates a merchant record in TIB Finance.
+            Saves the merchant.
             Parameters
             ----------
             saveMerchantArgs : SaveMerchantArgs, required
@@ -272,7 +298,7 @@ class Portal:
     @staticmethod
     def saveMerchantAccountInfo(saveMerchantAccountInfoArgs):
         """
-            Saves or updates a merchant's bank account information.
+            Saves the merchant account information. This operation is protected by two-factor authentication.
             Parameters
             ----------
             saveMerchantAccountInfoArgs : SaveMerchantAccountInfoArgs, required
@@ -350,7 +376,7 @@ class Portal:
     @staticmethod
     def adjustWallet(adjustWalletArgs):
         """
-            Adjusts the merchant's wallet balance by the specified amount.
+            Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service.
             Parameters
             ----------
             adjustWalletArgs : AdjustWalletArgs, required
@@ -478,6 +504,32 @@ class Portal:
         return api_response
 
     @staticmethod
+    def saveCustomerContactInfo(saveCustomerContactInfoArgs):
+        """
+            Updates only a customer's contact information (email, phone, address, language) without touching the rest of the customer record. Use this when editing the contact card in isolation: fields left null preserve the stored value, empty strings clear it, and non-empty values overwrite.
+            Parameters
+            ----------
+            saveCustomerContactInfoArgs : SaveCustomerContactInfoArgs, required
+
+            Returns
+            -------
+            SaveCustomerContactInfoResponse : SaveCustomerContactInfoResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(saveCustomerContactInfoArgs)
+        api_response = call_tib_api(method_name='SaveCustomerContactInfo', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = SaveCustomerContactInfoResponse(api_response)
+        return api_response
+
+    @staticmethod
     def deleteCustomer(deleteCustomerArgs):
         """
             Deletes a customer record from the TIB Finance system.
@@ -584,7 +636,7 @@ class Portal:
     @staticmethod
     def createDirectAccountPaymentMethod(createDirectAccountPaymentMethodArgs):
         """
-            Creates a bank‑account payment method linked directly to a customer.
+            Creates the direct account payment method.
             Parameters
             ----------
             createDirectAccountPaymentMethodArgs : CreateDirectAccountPaymentMethodArgs, required
@@ -1104,7 +1156,7 @@ class Portal:
     @staticmethod
     def forcePaymentProcess(forcePaymentProcessArgs):
         """
-            Forces the payment process.
+            Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create.
             Parameters
             ----------
             forcePaymentProcessArgs : ForcePaymentProcessArgs, required
@@ -1208,7 +1260,7 @@ class Portal:
     @staticmethod
     def revertTransfer(revertTransferArgs):
         """
-            Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers.
+            Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create.
             Parameters
             ----------
             revertTransferArgs : RevertTransferArgs, required
@@ -1255,32 +1307,6 @@ class Portal:
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = ChangeInteracPaymentMethodQuestionAndAnswerResponse(api_response)
-        return api_response
-
-    @staticmethod
-    def initBoarding(initBoardingArgs):
-        """
-            Initializes the merchant onboarding (boarding) process for a service. Generates a public access token and returns a redirect URL to either the direct login page (if a service-level login exists) or the boarding sign-up wizard.
-            Parameters
-            ----------
-            initBoardingArgs : InitBoardingArgs, required
-
-            Returns
-            -------
-            InitBoardingResponse : InitBoardingResponse
-
-            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
-            encryption there are some issues with padding or data length is incorrect for encryption then server will
-            refuse the API request and this error will be raised
-        
-            InternalServerError
-                Error in API call from server
-        """
-        api_request_body = object2dict(initBoardingArgs)
-        api_response = call_tib_api(method_name='InitBoarding', api_request_body=api_request_body)
-        if api_response is not None:
-            api_response = dict2obj(api_response)
-            api_response = InitBoardingResponse(api_response)
         return api_response
 
     @staticmethod
@@ -1494,7 +1520,7 @@ class Portal:
     @staticmethod
     def deleteSupplier(deleteSupplierArgs):
         """
-            Soft-deletes a supplier link for the specified merchant. The supplier's merchant account is not affected â€” only the payer-to-supplier association is removed.
+            Soft-deletes a supplier link for the specified merchant. The supplier's merchant account is not affected — only the payer-to-supplier association is removed.
             Parameters
             ----------
             deleteSupplierArgs : DeleteSupplierArgs, required
@@ -1520,7 +1546,7 @@ class Portal:
     @staticmethod
     def listSupplierTransfers(listSupplierTransfersArgs):
         """
-            Lists supplier transfers initiated by the calling merchant (identified via FeeMerchantId). Returns transfers where the caller is the fee-payer, with optional datestatus filters.
+            Lists supplier transfers initiated by the calling merchant (identified via FeeMerchantId). Returns transfers where the caller is the fee-payer, with optional date/status filters.
             Parameters
             ----------
             listSupplierTransfersArgs : ListSupplierTransfersArgs, required
@@ -1590,6 +1616,32 @@ class Portal:
         """
         api_request_body = object2dict(listSupplierRecurringTransfersArgs)
         api_response = call_tib_api(method_name='ListSupplierRecurringTransfers', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = ListSupplierRecurringTransfersResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def listSupplierRecurringTransfersByService(listSupplierRecurringTransfersByServiceArgs):
+        """
+            Lists recurring supplier transfers across an entire service. Returns every non-deleted recurring supplier transfer where any merchant in the given service is the fee-payer, with the supplier merchant's name on each entry. Use this to view all recurring supplier payments service-wide; use ListSupplierRecurringTransfers when scoping to a single fee-paying merchant.
+            Parameters
+            ----------
+            listSupplierRecurringTransfersByServiceArgs : ListSupplierRecurringTransfersByServiceArgs, required
+
+            Returns
+            -------
+            ListSupplierRecurringTransfersResponse : ListSupplierRecurringTransfersResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(listSupplierRecurringTransfersByServiceArgs)
+        api_response = call_tib_api(method_name='ListSupplierRecurringTransfersByService', api_request_body=api_request_body)
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = ListSupplierRecurringTransfersResponse(api_response)

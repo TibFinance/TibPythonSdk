@@ -43,6 +43,10 @@ class ServiceSettings:
             self.TIBWarningDepositLimitDaily = None
             self.MerchantAccountDepositDelay = None
             self.DataContext = None
+            self.CollectAllowedPaymentMethods = None
+            self.DepositAllowedPaymentMethods = None
+            self.DenyFreeDeposits = None
+            self.DenySupplierPayments = None
 
         else:
             
@@ -82,5 +86,9 @@ class ServiceSettings:
             self.TIBWarningDepositLimitDaily = getattr(obj, 'TIBWarningDepositLimitDaily', None)
             self.MerchantAccountDepositDelay = getattr(obj, 'MerchantAccountDepositDelay', None)
             self.DataContext = getattr(obj, 'DataContext', None)
+            self.CollectAllowedPaymentMethods = getattr(obj, 'CollectAllowedPaymentMethods', None)
+            self.DepositAllowedPaymentMethods = getattr(obj, 'DepositAllowedPaymentMethods', None)
+            self.DenyFreeDeposits = getattr(obj, 'DenyFreeDeposits', None)
+            self.DenySupplierPayments = getattr(obj, 'DenySupplierPayments', None)
 
 

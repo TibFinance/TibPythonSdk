@@ -3,14 +3,14 @@
 from .BaseApiResponse import BaseApiResponse
 
 
-class InitBoardingResponse(BaseApiResponse):
+class AddBankAccountResponse(BaseApiResponse):
     def __init__(self, obj=None):
         if obj is None:
             super().__init__()
-            self.RedirectUrl = None
+            self.NewMerchantId = None
 
         else:
             super().__init__(obj)
-            self.RedirectUrl = getattr(obj, 'RedirectUrl', None)
+            self.NewMerchantId = getattr(obj, 'NewMerchantId', None)
 
 

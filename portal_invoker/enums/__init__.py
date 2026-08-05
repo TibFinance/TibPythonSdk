@@ -19,6 +19,7 @@ from .ProcessStatus import ProcessStatus
 from .Provider import Provider
 from .ProvinceStateId import ProvinceStateId
 from .ReferenceType import ReferenceType
+from .TibOperationStatus import TibOperationStatus
 from .TransferDirection import TransferDirection
 from .TransferFrequency import TransferFrequency
 from .TransferType import TransferType

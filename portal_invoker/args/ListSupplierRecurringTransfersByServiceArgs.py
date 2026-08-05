@@ -3,7 +3,7 @@
 
 
 
-class InitBoardingArgs:
+class ListSupplierRecurringTransfersByServiceArgs:
     def __init__(self, obj=None):
         if obj is None:
             

@@ -5,6 +5,7 @@ from ..enums import Currency
 from ..enums import OperationTarget
 from ..enums import TransferDirection
 from ..enums import OperationKind
+from ..enums import TibOperationStatus
 
 
 class PaymentOperationEntity:
@@ -36,7 +37,7 @@ class PaymentOperationEntity:
             self.Transactions = []
             if hasattr(obj, 'Transactions') and obj.Transactions is not None:
                 self.Transactions = [TransactionCommon(name) for name in  obj.Transactions]
-            self.OperationStatus = getattr(obj, 'OperationStatus', None)
+            self.OperationStatus = TibOperationStatus(getattr(obj, 'OperationStatus', None)) if getattr(obj, 'OperationStatus', None) is not None else None
             self.OverloadMerchantName = getattr(obj, 'OverloadMerchantName', None)
 
 

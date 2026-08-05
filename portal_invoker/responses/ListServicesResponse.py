@@ -10,6 +10,7 @@ class ListServicesResponse(BaseApiResponse):
             super().__init__()
             self.Services = None
             self.SkipClientApprobation = None
+            self.IsClientBoardingExempt = None
 
         else:
             super().__init__(obj)
@@ -18,5 +19,6 @@ class ListServicesResponse(BaseApiResponse):
             if hasattr(obj, 'Services') and obj.Services is not None:
                 self.Services = [Service(name) for name in  obj.Services]
             self.SkipClientApprobation = getattr(obj, 'SkipClientApprobation', None)
+            self.IsClientBoardingExempt = getattr(obj, 'IsClientBoardingExempt', None)
 
 

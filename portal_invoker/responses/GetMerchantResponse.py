@@ -9,9 +9,11 @@ class GetMerchantResponse(BaseApiResponse):
         if obj is None:
             super().__init__()
             self.Merchant = None
+            self.DenySupplierPayments = None
 
         else:
             super().__init__(obj)
             self.Merchant = MerchantView(getattr(obj, 'Merchant', None)) if getattr(obj, 'Merchant', None) is not None else None
+            self.DenySupplierPayments = getattr(obj, 'DenySupplierPayments', None)
 
 

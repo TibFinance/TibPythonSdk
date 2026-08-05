@@ -1,4 +1,5 @@
 from .BaseApiResponse import BaseApiResponse
+from .AddBankAccountResponse import AddBankAccountResponse
 from .AdjustWalletResponse import AdjustWalletResponse
 from .ChangeInteracPaymentMethodQuestionAndAnswerResponse import ChangeInteracPaymentMethodQuestionAndAnswerResponse
 from .CreateBillResponse import CreateBillResponse
@@ -40,7 +41,6 @@ from .GetSuppliersResponse import GetSuppliersResponse
 from .GetSupplierTransferResponse import GetSupplierTransferResponse
 from .GetWalletInformationsResponse import GetWalletInformationsResponse
 from .GetWalletOperationsResponse import GetWalletOperationsResponse
-from .InitBoardingResponse import InitBoardingResponse
 from .ListBillsResponse import ListBillsResponse
 from .ListCustomersResponse import ListCustomersResponse
 from .ListExecutedOperationsResponse import ListExecutedOperationsResponse
@@ -56,6 +56,7 @@ from .RelaunchMerchantFailedTransferResponse import RelaunchMerchantFailedTransf
 from .RequestDataResponse import RequestDataResponse
 from .ResendPaymentEmailResponse import ResendPaymentEmailResponse
 from .RevertTransferResponse import RevertTransferResponse
+from .SaveCustomerContactInfoResponse import SaveCustomerContactInfoResponse
 from .SaveCustomerResponse import SaveCustomerResponse
 from .SaveMerchantResponse import SaveMerchantResponse
 from .SetDefaultPaymentMethodResponse import SetDefaultPaymentMethodResponse

@@ -25,6 +25,9 @@ class RecuringTransfer:
             self.TrasnferDescription = None
             self.TrasnferExternalSystemNumber = None
             self.EndDate = None
+            self.IsSupplierTransfer = None
+            self.PayerMerchantName = None
+            self.IsCurrentUserPayer = None
 
         else:
             
@@ -44,5 +47,8 @@ class RecuringTransfer:
             self.TrasnferDescription = getattr(obj, 'TrasnferDescription', None)
             self.TrasnferExternalSystemNumber = getattr(obj, 'TrasnferExternalSystemNumber', None)
             self.EndDate = getattr(obj, 'EndDate', None)
+            self.IsSupplierTransfer = getattr(obj, 'IsSupplierTransfer', None)
+            self.PayerMerchantName = getattr(obj, 'PayerMerchantName', None)
+            self.IsCurrentUserPayer = getattr(obj, 'IsCurrentUserPayer', None)
 
 

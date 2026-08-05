@@ -63,7 +63,7 @@ class TransferBaseInformationEntity:
             self.ed = getattr(obj, 'ed', None)
             self.ed2 = getattr(obj, 'ed2', None)
             self.he = getattr(obj, 'he', None)
-            self.delt = getattr(obj, 'delt', None)
+            self.delt = getattr(obj, 'del', None)
             self.CollectOperationAmount = getattr(obj, 'CollectOperationAmount', None)
             self.DepositOperationAmount = getattr(obj, 'DepositOperationAmount', None)
             self.ConvenientFeesOperationAmount = getattr(obj, 'ConvenientFeesOperationAmount', None)

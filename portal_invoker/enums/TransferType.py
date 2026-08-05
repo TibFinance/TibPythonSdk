@@ -13,4 +13,5 @@ class TransferType(enum.Enum):
     DepositToWallet = 8
     CollectFromWallet = 9
     DepositToWalletFromInterac = 10
+    MicroDepositVerification = 11
 

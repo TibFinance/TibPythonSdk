@@ -1,3 +1,4 @@
+from .AddBankAccountArgs import AddBankAccountArgs
 from .AdjustWalletArgs import AdjustWalletArgs
 from .BaseAuthenticatedCryptedArgs import BaseAuthenticatedCryptedArgs
 from .ChangeInteracPaymentMethodQuestionAndAnswerArgs import ChangeInteracPaymentMethodQuestionAndAnswerArgs
@@ -39,7 +40,6 @@ from .GetSuppliersArgs import GetSuppliersArgs
 from .GetSupplierTransferArgs import GetSupplierTransferArgs
 from .GetWalletInformationsArgs import GetWalletInformationsArgs
 from .GetWalletOperationsArgs import GetWalletOperationsArgs
-from .InitBoardingArgs import InitBoardingArgs
 from .ListBillsArgs import ListBillsArgs
 from .ListCustomersArgs import ListCustomersArgs
 from .ListExecutedOperationsArgs import ListExecutedOperationsArgs
@@ -47,6 +47,7 @@ from .ListMerchantsArgs import ListMerchantsArgs
 from .ListPaymentMethodsArgs import ListPaymentMethodsArgs
 from .ListServicesArgs import ListServicesArgs
 from .ListSupplierRecurringTransfersArgs import ListSupplierRecurringTransfersArgs
+from .ListSupplierRecurringTransfersByServiceArgs import ListSupplierRecurringTransfersByServiceArgs
 from .ListSuppliersArgs import ListSuppliersArgs
 from .ListSupplierTransfersArgs import ListSupplierTransfersArgs
 from .ListTransfersArgs import ListTransfersArgs
@@ -56,6 +57,7 @@ from .RelaunchMerchantFailedTransferArgs import RelaunchMerchantFailedTransferAr
 from .ResendPaymentEmailArgs import ResendPaymentEmailArgs
 from .RevertTransferArgs import RevertTransferArgs
 from .SaveCustomerArgs import SaveCustomerArgs
+from .SaveCustomerContactInfoArgs import SaveCustomerContactInfoArgs
 from .SaveMerchantAccountInfoArgs import SaveMerchantAccountInfoArgs
 from .SaveMerchantArgs import SaveMerchantArgs
 from .SaveMerchantBasicInfoArgs import SaveMerchantBasicInfoArgs

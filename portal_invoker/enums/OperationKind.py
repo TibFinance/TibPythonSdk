@@ -27,6 +27,8 @@ class OperationKind(enum.Enum):
     SupportFee = 24
     WalletCollect = 25
     CreditCardFailedCharge = 26
+    LowVolumeFee = 28
+    MicroDepositVerification = 27
     GroupedFees = 100
     FeesRetransfer = 101
 
