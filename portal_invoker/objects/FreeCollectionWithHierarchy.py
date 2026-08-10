@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..enums import TransferDirection
@@ -30,12 +30,12 @@ class FreeCollectionWithHierarchy:
             
             self.FreeCollectionId = getattr(obj, 'FreeCollectionId', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
-            self.OperationDirection = TransferDirection(getattr(obj, 'OperationDirection', None)) if getattr(obj, 'OperationDirection', None) is not None else None
-            self.OperationKind = OperationKind(getattr(obj, 'OperationKind', None)) if getattr(obj, 'OperationKind', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
+            self.OperationDirection = to_enum(TransferDirection, getattr(obj, 'OperationDirection', None))
+            self.OperationKind = to_enum(OperationKind, getattr(obj, 'OperationKind', None))
             self.Amount = getattr(obj, 'Amount', None)
             self.OperationAmount = getattr(obj, 'OperationAmount', None)
-            self.CurrentStatus = ProcessStatus(getattr(obj, 'CurrentStatus', None)) if getattr(obj, 'CurrentStatus', None) is not None else None
+            self.CurrentStatus = to_enum(ProcessStatus, getattr(obj, 'CurrentStatus', None))
             self.CreatedDate = getattr(obj, 'CreatedDate', None)
             self.AccountName = getattr(obj, 'AccountName', None)
             self.ReferenceId = getattr(obj, 'ReferenceId', None)

@@ -9,9 +9,7 @@ class TransferType(enum.Enum):
     Fee = 4
     Revert = 5
     PaymentAndFreeCollection = 6
-    Commission = 7
     DepositToWallet = 8
     CollectFromWallet = 9
     DepositToWalletFromInterac = 10
-    MicroDepositVerification = 11
 

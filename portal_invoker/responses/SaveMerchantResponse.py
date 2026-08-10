@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 from .BaseApiResponse import BaseApiResponse
 from ..enums import TwoFactorStatus
 from ..objects import TwoFactorSetupData
@@ -17,7 +17,7 @@ class SaveMerchantResponse(BaseApiResponse):
 
         else:
             super().__init__(obj)
-            self.TwoFactorStatus = TwoFactorStatus(getattr(obj, 'TwoFactorStatus', None)) if getattr(obj, 'TwoFactorStatus', None) is not None else None
+            self.TwoFactorStatus = to_enum(TwoFactorStatus, getattr(obj, 'TwoFactorStatus', None))
             self.TwoFactorMessage = getattr(obj, 'TwoFactorMessage', None)
             self.TwoFactorSetupData = TwoFactorSetupData(getattr(obj, 'TwoFactorSetupData', None)) if getattr(obj, 'TwoFactorSetupData', None) is not None else None
             self.TwoFactorVerificationMerchantId = getattr(obj, 'TwoFactorVerificationMerchantId', None)

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import TransferTypeFlag
 from ..enums import DateType
@@ -24,7 +24,7 @@ class ListExecutedOperationsArgs:
             self.SessionToken = getattr(obj, 'SessionToken', None)
             self.FromDate = getattr(obj, 'FromDate', None)
             self.ToDate = getattr(obj, 'ToDate', None)
-            self.TransferType = TransferTypeFlag(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.TransferType = to_enum(TransferTypeFlag, getattr(obj, 'TransferType', None))
             self.TransferGroupId = getattr(obj, 'TransferGroupId', None)
             self.OnlyWithErrors = getattr(obj, 'OnlyWithErrors', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..enums import OperationTarget
@@ -27,17 +27,17 @@ class PaymentOperationEntity:
             
             from .TransactionCommon import TransactionCommon
             self.Amount = getattr(obj, 'Amount', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
-            self.OperationTarget = OperationTarget(getattr(obj, 'OperationTarget', None)) if getattr(obj, 'OperationTarget', None) is not None else None
-            self.OperationDirection = TransferDirection(getattr(obj, 'OperationDirection', None)) if getattr(obj, 'OperationDirection', None) is not None else None
-            self.OperationKind = OperationKind(getattr(obj, 'OperationKind', None)) if getattr(obj, 'OperationKind', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
+            self.OperationTarget = to_enum(OperationTarget, getattr(obj, 'OperationTarget', None))
+            self.OperationDirection = to_enum(TransferDirection, getattr(obj, 'OperationDirection', None))
+            self.OperationKind = to_enum(OperationKind, getattr(obj, 'OperationKind', None))
             self.CreatedDate = getattr(obj, 'CreatedDate', None)
             self.ExecutedDate = getattr(obj, 'ExecutedDate', None)
 
             self.Transactions = []
             if hasattr(obj, 'Transactions') and obj.Transactions is not None:
                 self.Transactions = [TransactionCommon(name) for name in  obj.Transactions]
-            self.OperationStatus = TibOperationStatus(getattr(obj, 'OperationStatus', None)) if getattr(obj, 'OperationStatus', None) is not None else None
+            self.OperationStatus = to_enum(TibOperationStatus, getattr(obj, 'OperationStatus', None))
             self.OverloadMerchantName = getattr(obj, 'OverloadMerchantName', None)
 
 

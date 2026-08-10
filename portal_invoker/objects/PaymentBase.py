@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import ProcessStatus
 from ..enums import PaymentMethodType
@@ -44,12 +44,12 @@ class PaymentBase:
             self.IsAutomaticPayment = getattr(obj, 'IsAutomaticPayment', None)
             self.PaymentInfo = PaymentEntity(getattr(obj, 'PaymentInfo', None)) if getattr(obj, 'PaymentInfo', None) is not None else None
             self.IsMarkResolved = getattr(obj, 'IsMarkResolved', None)
-            self.CurrentStatus = ProcessStatus(getattr(obj, 'CurrentStatus', None)) if getattr(obj, 'CurrentStatus', None) is not None else None
+            self.CurrentStatus = to_enum(ProcessStatus, getattr(obj, 'CurrentStatus', None))
             self.ConvenientFeeCreditCard = getattr(obj, 'ConvenientFeeCreditCard', None)
             self.ConvenientFeeDirectAccount = getattr(obj, 'ConvenientFeeDirectAccount', None)
             self.CreatedDate = getattr(obj, 'CreatedDate', None)
             self.PaymentMethodDescription = getattr(obj, 'PaymentMethodDescription', None)
             self.AccountInformationPreview = getattr(obj, 'AccountInformationPreview', None)
-            self.PaymentMethodType = PaymentMethodType(getattr(obj, 'PaymentMethodType', None)) if getattr(obj, 'PaymentMethodType', None) is not None else None
+            self.PaymentMethodType = to_enum(PaymentMethodType, getattr(obj, 'PaymentMethodType', None))
 
 

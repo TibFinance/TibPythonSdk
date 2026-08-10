@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Language
 
@@ -23,7 +23,7 @@ class AddBankAccountArgs:
             self.ServiceId = getattr(obj, 'ServiceId', None)
             self.Name = getattr(obj, 'Name', None)
             self.Email = getattr(obj, 'Email', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.BankNumber = getattr(obj, 'BankNumber', None)
             self.InstitutionNumber = getattr(obj, 'InstitutionNumber', None)
             self.AccountNumber = getattr(obj, 'AccountNumber', None)

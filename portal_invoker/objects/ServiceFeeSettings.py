@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import FeeMode
 from ..enums import FeeMode
@@ -45,24 +45,23 @@ class ServiceFeeSettings:
             self.CreditCardFailedChargeFee = None
             self.OppositionReturnFees = None
             self.InteracReturnFee = None
-            self.DataContext = None
 
         else:
             
-            self.CreditCardFeeMode = FeeMode(getattr(obj, 'CreditCardFeeMode', None)) if getattr(obj, 'CreditCardFeeMode', None) is not None else None
+            self.CreditCardFeeMode = to_enum(FeeMode, getattr(obj, 'CreditCardFeeMode', None))
             self.CreditCardPercentageFee = getattr(obj, 'CreditCardPercentageFee', None)
             self.CreditCardAbsoluteFee = getattr(obj, 'CreditCardAbsoluteFee', None)
-            self.DebitFeeMode = FeeMode(getattr(obj, 'DebitFeeMode', None)) if getattr(obj, 'DebitFeeMode', None) is not None else None
+            self.DebitFeeMode = to_enum(FeeMode, getattr(obj, 'DebitFeeMode', None))
             self.DebitPercentageFee = getattr(obj, 'DebitPercentageFee', None)
             self.DebitAbsoluteFee = getattr(obj, 'DebitAbsoluteFee', None)
-            self.InstantTransferFeeMode = FeeMode(getattr(obj, 'InstantTransferFeeMode', None)) if getattr(obj, 'InstantTransferFeeMode', None) is not None else None
+            self.InstantTransferFeeMode = to_enum(FeeMode, getattr(obj, 'InstantTransferFeeMode', None))
             self.InstantTransferPercentageFee = getattr(obj, 'InstantTransferPercentageFee', None)
             self.InstantTransferAbsoluteFee = getattr(obj, 'InstantTransferAbsoluteFee', None)
-            self.ConvenientFeeCreditMode = ConvenientFeeMode(getattr(obj, 'ConvenientFeeCreditMode', None)) if getattr(obj, 'ConvenientFeeCreditMode', None) is not None else None
+            self.ConvenientFeeCreditMode = to_enum(ConvenientFeeMode, getattr(obj, 'ConvenientFeeCreditMode', None))
             self.ConvenientFeeCreditPercentageFee = getattr(obj, 'ConvenientFeeCreditPercentageFee', None)
             self.ConvenientFeeCreditAbsoluteFee = getattr(obj, 'ConvenientFeeCreditAbsoluteFee', None)
             self.ConvenientFeeCreditRoundUpValue = getattr(obj, 'ConvenientFeeCreditRoundUpValue', None)
-            self.ConvenientFeeDebitMode = ConvenientFeeMode(getattr(obj, 'ConvenientFeeDebitMode', None)) if getattr(obj, 'ConvenientFeeDebitMode', None) is not None else None
+            self.ConvenientFeeDebitMode = to_enum(ConvenientFeeMode, getattr(obj, 'ConvenientFeeDebitMode', None))
             self.ConvenientFeeDebitPercentageFee = getattr(obj, 'ConvenientFeeDebitPercentageFee', None)
             self.ConvenientFeeDebitAbsoluteFee = getattr(obj, 'ConvenientFeeDebitAbsoluteFee', None)
             self.ConvenientFeeDebitRoundUpValue = getattr(obj, 'ConvenientFeeDebitRoundUpValue', None)
@@ -82,6 +81,5 @@ class ServiceFeeSettings:
             self.CreditCardFailedChargeFee = getattr(obj, 'CreditCardFailedChargeFee', None)
             self.OppositionReturnFees = getattr(obj, 'OppositionReturnFees', None)
             self.InteracReturnFee = getattr(obj, 'InteracReturnFee', None)
-            self.DataContext = getattr(obj, 'DataContext', None)
 
 

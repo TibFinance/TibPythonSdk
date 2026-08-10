@@ -2,8 +2,6 @@
 import enum
 
 class ProcessStatus(enum.Enum):
-    Unknown = -1
-    NotSet = 0
     New = 1
     Collect_Validation_Success_Success = 2
     Collect_Validation_Success_NoResultReturned = 3
@@ -61,14 +59,6 @@ class ProcessStatus(enum.Enum):
     Deposit_Payback_Success_Error = 55
     Deposit_Payback_Error_Temporary = 56
     Deposit_Payback_Error_Fatal = 57
-    Collect_Validation_NotSet = 100
-    Collect_Transmission_NotSet = 101
-    Collect_StatusCheck_NotSet = 102
-    Collect_Payback_NotSet = 103
-    Deposit_Validation_NotSet = 104
-    Deposit_Transmission_NotSet = 105
-    Deposit_StatusCheck_NotSet = 106
-    Deposit_Payback_NotSet = 107
     Collect_Validation_Abort = 108
     Collect_Transmission_Abort = 109
     Collect_StatusCheck_Abort = 110
@@ -78,9 +68,5 @@ class ProcessStatus(enum.Enum):
     Deposit_StatusCheck_Abort = 114
     Deposit_Payback_Abort = 115
     Deposit_Immediate_Insufficient_Wallet_Balance_Abort = 116
-    Collect_Transmission_Pending = 117
-    Collect_StatusCheck_Pending = 118
-    Deposit_Transmission_Pending = 119
-    Deposit_StatusCheck_Pending = 120
     Authorization_Denied = 900
 

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..objects import Interac
 from ..enums import TransferDirection
@@ -27,12 +27,12 @@ class CreateDirectInteracTransactionArgs:
             self.SessionToken = getattr(obj, 'SessionToken', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.InteracInformation = Interac(getattr(obj, 'InteracInformation', None)) if getattr(obj, 'InteracInformation', None) is not None else None
-            self.TransferDirection = TransferDirection(getattr(obj, 'TransferDirection', None)) if getattr(obj, 'TransferDirection', None) is not None else None
+            self.TransferDirection = to_enum(TransferDirection, getattr(obj, 'TransferDirection', None))
             self.DueDate = getattr(obj, 'DueDate', None)
             self.Amount = getattr(obj, 'Amount', None)
             self.StatementDescription = getattr(obj, 'StatementDescription', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.ReferenceNumber = getattr(obj, 'ReferenceNumber', None)
 
 

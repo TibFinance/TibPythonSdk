@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Language
 from ..enums import Currency
@@ -18,7 +18,7 @@ class CreateSubClientArgs:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
             self.Name = getattr(obj, 'Name', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
 
 

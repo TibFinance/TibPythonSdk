@@ -1,9 +1,8 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..enums import Language
-from ..enums import Provider
 
 
 class MerchantBasicInfo:
@@ -20,7 +19,6 @@ class MerchantBasicInfo:
             self.PhoneNumber = None
             self.MerchantDescription = None
             self.Address = None
-            self.FavoriteProvider = None
 
         else:
             
@@ -28,13 +26,12 @@ class MerchantBasicInfo:
             self.MerchantName = getattr(obj, 'MerchantName', None)
             self.ExternalSystemId = getattr(obj, 'ExternalSystemId', None)
             self.ExternalSystemGroupId = getattr(obj, 'ExternalSystemGroupId', None)
-            self.MerchantCurrency = Currency(getattr(obj, 'MerchantCurrency', None)) if getattr(obj, 'MerchantCurrency', None) is not None else None
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.MerchantCurrency = to_enum(Currency, getattr(obj, 'MerchantCurrency', None))
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.Email = getattr(obj, 'Email', None)
             self.EmailCopyTo = getattr(obj, 'EmailCopyTo', None)
             self.PhoneNumber = getattr(obj, 'PhoneNumber', None)
             self.MerchantDescription = getattr(obj, 'MerchantDescription', None)
             self.Address = Address(getattr(obj, 'Address', None)) if getattr(obj, 'Address', None) is not None else None
-            self.FavoriteProvider = Provider(getattr(obj, 'FavoriteProvider', None)) if getattr(obj, 'FavoriteProvider', None) is not None else None
 
 

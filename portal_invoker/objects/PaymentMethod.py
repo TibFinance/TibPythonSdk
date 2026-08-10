@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import PaymentMethodType
 
@@ -23,7 +23,7 @@ class PaymentMethod:
             from .MerchantIdName import MerchantIdName
             self.PaymentMethodId = getattr(obj, 'PaymentMethodId', None)
             self.IsCustomerAutomaticPaymentMethod = getattr(obj, 'IsCustomerAutomaticPaymentMethod', None)
-            self.PaymentMethodType = PaymentMethodType(getattr(obj, 'PaymentMethodType', None)) if getattr(obj, 'PaymentMethodType', None) is not None else None
+            self.PaymentMethodType = to_enum(PaymentMethodType, getattr(obj, 'PaymentMethodType', None))
             self.PaymentMethodDescription = getattr(obj, 'PaymentMethodDescription', None)
             self.AccountPreview = getattr(obj, 'AccountPreview', None)
             self.ExpirationDate = getattr(obj, 'ExpirationDate', None)

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..enums import Language
@@ -30,9 +30,9 @@ class CreateSupplierTransferArgs:
             self.Amount = getattr(obj, 'Amount', None)
             self.TransferDueDate = getattr(obj, 'TransferDueDate', None)
             self.TargetMerchantId = getattr(obj, 'TargetMerchantId', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
-            self.TransferFrequency = TransferFrequency(getattr(obj, 'TransferFrequency', None)) if getattr(obj, 'TransferFrequency', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
+            self.TransferFrequency = to_enum(TransferFrequency, getattr(obj, 'TransferFrequency', None))
             self.RecurringEndDate = getattr(obj, 'RecurringEndDate', None)
             self.BillNumber = getattr(obj, 'BillNumber', None)
             self.BillDescription = getattr(obj, 'BillDescription', None)

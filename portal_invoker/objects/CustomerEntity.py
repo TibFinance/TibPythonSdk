@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Language
 
@@ -22,7 +22,7 @@ class CustomerEntity:
             from .ContactInfo import ContactInfo
             self.CustomerName = getattr(obj, 'CustomerName', None)
             self.CustomerExternalId = getattr(obj, 'CustomerExternalId', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.CustomerDescription = getattr(obj, 'CustomerDescription', None)
             self.CustomerEmail = getattr(obj, 'CustomerEmail', None)
 

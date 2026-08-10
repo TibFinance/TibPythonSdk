@@ -1,7 +1,6 @@
 
 
 from .BaseApiResponse import BaseApiResponse
-from ..objects import MerchantView
 
 
 class CreateSupplierResponse(BaseApiResponse):
@@ -10,15 +9,10 @@ class CreateSupplierResponse(BaseApiResponse):
             super().__init__()
             self.SupplierId = None
             self.SupplierName = None
-            self.MatchingExistingMerchants = None
 
         else:
             super().__init__(obj)
             self.SupplierId = getattr(obj, 'SupplierId', None)
             self.SupplierName = getattr(obj, 'SupplierName', None)
-
-            self.MatchingExistingMerchants = []
-            if hasattr(obj, 'MatchingExistingMerchants') and obj.MatchingExistingMerchants is not None:
-                self.MatchingExistingMerchants = [MerchantView(name) for name in  obj.MatchingExistingMerchants]
 
 

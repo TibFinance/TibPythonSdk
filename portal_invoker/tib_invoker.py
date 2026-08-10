@@ -896,7 +896,7 @@ class Portal:
     @staticmethod
     def listTransfersFast(listTransfersFastArgs):
         """
-            Retrieves a filtered, summarized list of transfer records for a specified service.
+            Retrieves a filtered, summarized list of transfers for a service using an optimized query. Supports filtering by transfer type, date range, merchant, transfer group, error status, and resolved status.
             Parameters
             ----------
             listTransfersFastArgs : ListTransfersFastArgs, required
@@ -922,7 +922,7 @@ class Portal:
     @staticmethod
     def listTransfersForBillFast(listTransfersForBillFastArgs):
         """
-            Retrieves all transfer records associated with a specific bill.
+            Lists the transfers of a bill.
             Parameters
             ----------
             listTransfersForBillFastArgs : ListTransfersForBillFastArgs, required

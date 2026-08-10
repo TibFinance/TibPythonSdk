@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import WalletAdjustment
 
@@ -21,7 +21,7 @@ class AdjustWalletArgs:
             self.ServiceId = getattr(obj, 'ServiceId', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.Amount = getattr(obj, 'Amount', None)
-            self.Mode = WalletAdjustment(getattr(obj, 'Mode', None)) if getattr(obj, 'Mode', None) is not None else None
+            self.Mode = to_enum(WalletAdjustment, getattr(obj, 'Mode', None))
             self.UseInterac = getattr(obj, 'UseInterac', None)
 
 

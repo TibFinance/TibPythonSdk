@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..objects import CreditCard
@@ -15,19 +15,17 @@ class CreateCreditCardPaymentMethodArgs:
             self.CustomerId = None
             self.IsCustomerAutomaticPaymentMethod = None
             self.CreditCard = None
-            self.CardOwner = None
             self.ZipCode = None
             self.Language = None
 
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
             self.CustomerId = getattr(obj, 'CustomerId', None)
             self.IsCustomerAutomaticPaymentMethod = getattr(obj, 'IsCustomerAutomaticPaymentMethod', None)
             self.CreditCard = CreditCard(getattr(obj, 'CreditCard', None)) if getattr(obj, 'CreditCard', None) is not None else None
-            self.CardOwner = getattr(obj, 'CardOwner', None)
             self.ZipCode = getattr(obj, 'ZipCode', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
 
 

@@ -8,11 +8,9 @@ class CreateFreeOperationResponse(BaseApiResponse):
         if obj is None:
             super().__init__()
             self.PaymentId = None
-            self.ClientId = None
 
         else:
             super().__init__(obj)
             self.PaymentId = getattr(obj, 'PaymentId', None)
-            self.ClientId = getattr(obj, 'ClientId', None)
 
 

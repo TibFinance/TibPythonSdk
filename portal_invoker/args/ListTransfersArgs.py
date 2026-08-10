@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import PaymentFilterLevel
 from ..enums import TransferTypeFlag
@@ -23,13 +23,13 @@ class ListTransfersArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
-            self.PaymentFilterLevel = PaymentFilterLevel(getattr(obj, 'PaymentFilterLevel', None)) if getattr(obj, 'PaymentFilterLevel', None) is not None else None
+            self.PaymentFilterLevel = to_enum(PaymentFilterLevel, getattr(obj, 'PaymentFilterLevel', None))
             self.LevelFilterId = getattr(obj, 'LevelFilterId', None)
             self.MarkResolvedOnly = getattr(obj, 'MarkResolvedOnly', None)
             self.FromDate = getattr(obj, 'FromDate', None)
             self.ToDate = getattr(obj, 'ToDate', None)
             self.TransferGroupId = getattr(obj, 'TransferGroupId', None)
-            self.TransferType = TransferTypeFlag(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.TransferType = to_enum(TransferTypeFlag, getattr(obj, 'TransferType', None))
             self.ExternalMerchantGroupId = getattr(obj, 'ExternalMerchantGroupId', None)
             self.OnlyWithErrors = getattr(obj, 'OnlyWithErrors', None)
 

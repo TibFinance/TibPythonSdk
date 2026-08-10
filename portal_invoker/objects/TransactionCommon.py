@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import OperationTarget
 from ..enums import OperationType
@@ -29,16 +29,16 @@ class TransactionCommon:
 
         else:
             
-            self.OperationTarget = OperationTarget(getattr(obj, 'OperationTarget', None)) if getattr(obj, 'OperationTarget', None) is not None else None
-            self.OperationType = OperationType(getattr(obj, 'OperationType', None)) if getattr(obj, 'OperationType', None) is not None else None
-            self.OperationDirection = TransferDirection(getattr(obj, 'OperationDirection', None)) if getattr(obj, 'OperationDirection', None) is not None else None
-            self.Status = OperationStatus(getattr(obj, 'Status', None)) if getattr(obj, 'Status', None) is not None else None
+            self.OperationTarget = to_enum(OperationTarget, getattr(obj, 'OperationTarget', None))
+            self.OperationType = to_enum(OperationType, getattr(obj, 'OperationType', None))
+            self.OperationDirection = to_enum(TransferDirection, getattr(obj, 'OperationDirection', None))
+            self.Status = to_enum(OperationStatus, getattr(obj, 'Status', None))
             self.Description = getattr(obj, 'Description', None)
-            self.BankingOperationResult = BankingOperationResult(getattr(obj, 'BankingOperationResult', None)) if getattr(obj, 'BankingOperationResult', None) is not None else None
+            self.BankingOperationResult = to_enum(BankingOperationResult, getattr(obj, 'BankingOperationResult', None))
             self.BankDescription = getattr(obj, 'BankDescription', None)
             self.AccountName = getattr(obj, 'AccountName', None)
             self.AccoutPreview = getattr(obj, 'AccoutPreview', None)
-            self.AccountType = PaymentMethodType(getattr(obj, 'AccountType', None)) if getattr(obj, 'AccountType', None) is not None else None
+            self.AccountType = to_enum(PaymentMethodType, getattr(obj, 'AccountType', None))
             self.TransactionDescription = getattr(obj, 'TransactionDescription', None)
             self.TransactionDueDate = getattr(obj, 'TransactionDueDate', None)
             self.LastModifiedDate = getattr(obj, 'LastModifiedDate', None)

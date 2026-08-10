@@ -1,4 +1,3 @@
-from .AccountType import AccountType
 from .AutorizedPaymentMethodFlags import AutorizedPaymentMethodFlags
 from .BankingOperationResult import BankingOperationResult
 from .ConvenientFeeMode import ConvenientFeeMode

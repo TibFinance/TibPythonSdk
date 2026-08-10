@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..objects import PaymentEntity
 from ..enums import AutorizedPaymentMethodFlags
@@ -33,7 +33,7 @@ class CreatePaymentArgs:
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.ExternalReferenceId = getattr(obj, 'ExternalReferenceId', None)
             self.SafetyToBreakIfOverRemainingBillAmount = getattr(obj, 'SafetyToBreakIfOverRemainingBillAmount', None)
-            self.AutorizedPaymentMethod = AutorizedPaymentMethodFlags(getattr(obj, 'AutorizedPaymentMethod', None)) if getattr(obj, 'AutorizedPaymentMethod', None) is not None else None
+            self.AutorizedPaymentMethod = to_enum(AutorizedPaymentMethodFlags, getattr(obj, 'AutorizedPaymentMethod', None))
             self.AskForCustomerConsent = getattr(obj, 'AskForCustomerConsent', None)
             self.DoNotSendEmail = getattr(obj, 'DoNotSendEmail', None)
             self.ImmediateTransfer = getattr(obj, 'ImmediateTransfer', None)

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import TransferType
 from ..enums import Language
@@ -25,7 +25,6 @@ class FreeOperation:
             self.TransferFrequency = None
             self.RecurringEndDate = None
             self.StatementDescription = None
-            self.ClientId = None
             self.ImmediateTransfer = None
 
         else:
@@ -34,18 +33,17 @@ class FreeOperation:
             self.BillId = getattr(obj, 'BillId', None)
             self.CustomerId = getattr(obj, 'CustomerId', None)
             self.PaymentMethodId = getattr(obj, 'PaymentMethodId', None)
-            self.TransferType = TransferType(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.TransferType = to_enum(TransferType, getattr(obj, 'TransferType', None))
             self.ReferenceNumber = getattr(obj, 'ReferenceNumber', None)
             self.Amount = getattr(obj, 'Amount', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.TransactionDueDate = getattr(obj, 'TransactionDueDate', None)
             self.TransferTitle = getattr(obj, 'TransferTitle', None)
             self.TransferDescription = getattr(obj, 'TransferDescription', None)
             self.TransferExternalSystemNumber = getattr(obj, 'TransferExternalSystemNumber', None)
-            self.TransferFrequency = TransferFrequency(getattr(obj, 'TransferFrequency', None)) if getattr(obj, 'TransferFrequency', None) is not None else None
+            self.TransferFrequency = to_enum(TransferFrequency, getattr(obj, 'TransferFrequency', None))
             self.RecurringEndDate = getattr(obj, 'RecurringEndDate', None)
             self.StatementDescription = getattr(obj, 'StatementDescription', None)
-            self.ClientId = getattr(obj, 'ClientId', None)
             self.ImmediateTransfer = getattr(obj, 'ImmediateTransfer', None)
 
 

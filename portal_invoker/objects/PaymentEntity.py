@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import PaymentFlow
 from ..enums import Language
@@ -26,16 +26,16 @@ class PaymentEntity:
 
         else:
             
-            self.PaymentFlow = PaymentFlow(getattr(obj, 'PaymentFlow', None)) if getattr(obj, 'PaymentFlow', None) is not None else None
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.PaymentFlow = to_enum(PaymentFlow, getattr(obj, 'PaymentFlow', None))
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.RelatedCustomerId = getattr(obj, 'RelatedCustomerId', None)
             self.DueDate = getattr(obj, 'DueDate', None)
-            self.TransferFrequency = TransferFrequency(getattr(obj, 'TransferFrequency', None)) if getattr(obj, 'TransferFrequency', None) is not None else None
+            self.TransferFrequency = to_enum(TransferFrequency, getattr(obj, 'TransferFrequency', None))
             self.PaymentAmount = getattr(obj, 'PaymentAmount', None)
             self.ForcedCustomerPaymentMethodId = getattr(obj, 'ForcedCustomerPaymentMethodId', None)
             self.GroupId = getattr(obj, 'GroupId', None)
             self.ExternalReferenceIdentification = getattr(obj, 'ExternalReferenceIdentification', None)
-            self.AutorizedPaymentMethod = AutorizedPaymentMethodFlags(getattr(obj, 'AutorizedPaymentMethod', None)) if getattr(obj, 'AutorizedPaymentMethod', None) is not None else None
+            self.AutorizedPaymentMethod = to_enum(AutorizedPaymentMethodFlags, getattr(obj, 'AutorizedPaymentMethod', None))
             self.AskForCustomerConsent = getattr(obj, 'AskForCustomerConsent', None)
             self.IsDeleted = getattr(obj, 'IsDeleted', None)
 

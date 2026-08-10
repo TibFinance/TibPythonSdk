@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 from .BaseApiResponse import BaseApiResponse
 from ..enums import TransferType
 from ..enums import Language
@@ -24,9 +24,9 @@ class RequestDataResponse(BaseApiResponse):
             self.Amount = getattr(obj, 'Amount', None)
             self.CustomerId = getattr(obj, 'CustomerId', None)
             self.PaymentMethodId = getattr(obj, 'PaymentMethodId', None)
-            self.TransferType = TransferType(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.TransferType = to_enum(TransferType, getattr(obj, 'TransferType', None))
             self.ReferenceNumber = getattr(obj, 'ReferenceNumber', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.TransactionDueDate = getattr(obj, 'TransactionDueDate', None)
 
 

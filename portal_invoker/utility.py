@@ -39,6 +39,22 @@ def dict2obj(dict1):
     return json.loads(json.dumps(dict1), object_hook=Obj)
 
 
+def to_enum(enum_cls, value):
+    """Coerce a wire value to enum_cls; unknown values pass through unchanged.
+
+    The server may send enum values this SDK version does not publish (values
+    reserved for internal use, or added after this release). Raising on those
+    would break the whole response, so the raw value is kept as-is instead --
+    same tolerance the other TIB SDKs apply.
+    """
+    if value is None:
+        return None
+    try:
+        return enum_cls(value)
+    except (ValueError, KeyError, TypeError):
+        return value
+
+
 REGEX_MAPPER = {
     "NAME_VALIDATION": r"^[A-Za-z0-9_ -@.,'!?;:&$%*()àâçéèêëîïôûùüÿñæœ]{1,150}$",
     "DESCRIPTION_VALIDATION": r"^[A-Za-z0-9_ -@.,'!?;:&$%*()àâçéèêëîïôûùüÿñæœ]{0,150}$",

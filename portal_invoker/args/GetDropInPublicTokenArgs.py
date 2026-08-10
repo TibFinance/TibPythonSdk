@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import TransferType
 from ..enums import AutorizedPaymentMethodFlags
@@ -32,11 +32,11 @@ class GetDropInPublicTokenArgs:
             self.CustomerId = getattr(obj, 'CustomerId', None)
             self.BillId = getattr(obj, 'BillId', None)
             self.Amount = getattr(obj, 'Amount', None)
-            self.TransferType = TransferType(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
-            self.DropInAuthorizedPaymentMethod = AutorizedPaymentMethodFlags(getattr(obj, 'DropInAuthorizedPaymentMethod', None)) if getattr(obj, 'DropInAuthorizedPaymentMethod', None) is not None else None
+            self.TransferType = to_enum(TransferType, getattr(obj, 'TransferType', None))
+            self.DropInAuthorizedPaymentMethod = to_enum(AutorizedPaymentMethodFlags, getattr(obj, 'DropInAuthorizedPaymentMethod', None))
             self.ExternalReferenceNumber = getattr(obj, 'ExternalReferenceNumber', None)
             self.ShowCustomerExistingPaymentMethods = getattr(obj, 'ShowCustomerExistingPaymentMethods', None)
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.ExpirationDays = getattr(obj, 'ExpirationDays', None)
             self.Title = getattr(obj, 'Title', None)
             self.Description = getattr(obj, 'Description', None)

@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..objects import Interac
 from ..enums import Language
@@ -22,7 +22,7 @@ class CreateInteracPaymentMethodArgs:
             self.CustomerId = getattr(obj, 'CustomerId', None)
             self.IsCustomerAutomaticPaymentMethod = getattr(obj, 'IsCustomerAutomaticPaymentMethod', None)
             self.InteracInformation = Interac(getattr(obj, 'InteracInformation', None)) if getattr(obj, 'InteracInformation', None) is not None else None
-            self.Language = Language(getattr(obj, 'Language', None)) if getattr(obj, 'Language', None) is not None else None
+            self.Language = to_enum(Language, getattr(obj, 'Language', None))
             self.MerchantId = getattr(obj, 'MerchantId', None)
 
 

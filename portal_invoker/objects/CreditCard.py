@@ -14,9 +14,6 @@ class CreditCard:
             self.ExpirationYear = None
             self.CardOwner = None
             self.CreditCardRegisteredAddress = None
-            self.ExpirationDate = None
-            self.FormatedCreditCardString = None
-            self.PreviewString = None
 
         else:
             
@@ -28,8 +25,5 @@ class CreditCard:
             self.ExpirationYear = getattr(obj, 'ExpirationYear', None)
             self.CardOwner = getattr(obj, 'CardOwner', None)
             self.CreditCardRegisteredAddress = Address(getattr(obj, 'CreditCardRegisteredAddress', None)) if getattr(obj, 'CreditCardRegisteredAddress', None) is not None else None
-            self.ExpirationDate = getattr(obj, 'ExpirationDate', None)
-            self.FormatedCreditCardString = getattr(obj, 'FormatedCreditCardString', None)
-            self.PreviewString = getattr(obj, 'PreviewString', None)
 
 

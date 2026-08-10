@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import ReferenceType
 from ..enums import WalletType
@@ -28,13 +28,13 @@ class Wallet:
             
             from .WalletHolder import WalletHolder
             self.WalletId = getattr(obj, 'WalletId', None)
-            self.ReferenceType = ReferenceType(getattr(obj, 'ReferenceType', None)) if getattr(obj, 'ReferenceType', None) is not None else None
+            self.ReferenceType = to_enum(ReferenceType, getattr(obj, 'ReferenceType', None))
             self.ReferenceId = getattr(obj, 'ReferenceId', None)
             self.Balance = getattr(obj, 'Balance', None)
             self.WithdrawableAmount = getattr(obj, 'WithdrawableAmount', None)
             self.WalletRefillSchedule = getattr(obj, 'WalletRefillSchedule', None)
             self.IsProcessing = getattr(obj, 'IsProcessing', None)
-            self.WalletType = WalletType(getattr(obj, 'WalletType', None)) if getattr(obj, 'WalletType', None) is not None else None
+            self.WalletType = to_enum(WalletType, getattr(obj, 'WalletType', None))
 
             self.WalletHolders = []
             if hasattr(obj, 'WalletHolders') and obj.WalletHolders is not None:

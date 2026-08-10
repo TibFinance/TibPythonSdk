@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import TransferType
 
@@ -27,7 +27,7 @@ class ListTransfersFastArgs:
             self.ServiceId = getattr(obj, 'ServiceId', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.TransferGroupId = getattr(obj, 'TransferGroupId', None)
-            self.TransferType = TransferType(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.TransferType = to_enum(TransferType, getattr(obj, 'TransferType', None))
             self.MarkResolvedOnly = getattr(obj, 'MarkResolvedOnly', None)
             self.ExternalMerchantGroupId = getattr(obj, 'ExternalMerchantGroupId', None)
             self.OnlyWithErrors = getattr(obj, 'OnlyWithErrors', None)

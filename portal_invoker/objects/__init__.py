@@ -34,4 +34,5 @@ from .TransferBaseInformationEntity import TransferBaseInformationEntity
 from .TwoFactorSetupData import TwoFactorSetupData
 from .WalletHolder import WalletHolder
 from .Wallet import Wallet
+from .WalletOperationDetail import WalletOperationDetail
 from .WalletOperation import WalletOperation

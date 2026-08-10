@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import TransferFrequency
 from ..enums import TransferType
@@ -33,8 +33,8 @@ class RecuringTransfer:
             
             self.NextRecuringDate = getattr(obj, 'NextRecuringDate', None)
             self.RecuringTransferId = getattr(obj, 'RecuringTransferId', None)
-            self.RecuringMode = TransferFrequency(getattr(obj, 'RecuringMode', None)) if getattr(obj, 'RecuringMode', None) is not None else None
-            self.TransferType = TransferType(getattr(obj, 'TransferType', None)) if getattr(obj, 'TransferType', None) is not None else None
+            self.RecuringMode = to_enum(TransferFrequency, getattr(obj, 'RecuringMode', None))
+            self.TransferType = to_enum(TransferType, getattr(obj, 'TransferType', None))
             self.RelatedPaymentMethodId = getattr(obj, 'RelatedPaymentMethodId', None)
             self.RecuringRefDate = getattr(obj, 'RecuringRefDate', None)
             self.CreatedDate = getattr(obj, 'CreatedDate', None)

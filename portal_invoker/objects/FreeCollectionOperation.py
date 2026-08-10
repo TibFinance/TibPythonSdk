@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import Currency
 from ..enums import OperationTarget
@@ -25,9 +25,9 @@ class FreeCollectionOperation:
             from .FreeCollectionWithHierarchy import FreeCollectionWithHierarchy
             self.OperationTypeRef = getattr(obj, 'OperationTypeRef', None)
             self.Amount = getattr(obj, 'Amount', None)
-            self.Currency = Currency(getattr(obj, 'Currency', None)) if getattr(obj, 'Currency', None) is not None else None
-            self.OperationTarget = OperationTarget(getattr(obj, 'OperationTarget', None)) if getattr(obj, 'OperationTarget', None) is not None else None
-            self.OperationDirection = TransferDirection(getattr(obj, 'OperationDirection', None)) if getattr(obj, 'OperationDirection', None) is not None else None
+            self.Currency = to_enum(Currency, getattr(obj, 'Currency', None))
+            self.OperationTarget = to_enum(OperationTarget, getattr(obj, 'OperationTarget', None))
+            self.OperationDirection = to_enum(TransferDirection, getattr(obj, 'OperationDirection', None))
             self.TargetSystemId = getattr(obj, 'TargetSystemId', None)
 
             self.Transactions = []

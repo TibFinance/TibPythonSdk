@@ -1,5 +1,5 @@
 
-
+from ..utility import to_enum
 
 from ..enums import ProvinceStateId
 from ..enums import CountryId
@@ -19,8 +19,8 @@ class Address:
             
             self.StreetAddress = getattr(obj, 'StreetAddress', None)
             self.AddressCity = getattr(obj, 'AddressCity', None)
-            self.ProvinceStateId = ProvinceStateId(getattr(obj, 'ProvinceStateId', None)) if getattr(obj, 'ProvinceStateId', None) is not None else None
-            self.CountryId = CountryId(getattr(obj, 'CountryId', None)) if getattr(obj, 'CountryId', None) is not None else None
+            self.ProvinceStateId = to_enum(ProvinceStateId, getattr(obj, 'ProvinceStateId', None))
+            self.CountryId = to_enum(CountryId, getattr(obj, 'CountryId', None))
             self.PostalZipCode = getattr(obj, 'PostalZipCode', None)
 
 
