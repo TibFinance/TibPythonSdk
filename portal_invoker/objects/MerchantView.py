@@ -22,6 +22,7 @@ class MerchantView:
             self.MerchantLanguage = None
             self.Email = None
             self.IsAuthorized = None
+            self.IsSuspended = None
             self.EmailCopyTo = None
             self.MerchantPhoneNumber = None
             self.StreetAddress = None
@@ -47,6 +48,7 @@ class MerchantView:
             self.MerchantLanguage = to_enum(Language, getattr(obj, 'MerchantLanguage', None))
             self.Email = getattr(obj, 'Email', None)
             self.IsAuthorized = getattr(obj, 'IsAuthorized', None)
+            self.IsSuspended = getattr(obj, 'IsSuspended', None)
             self.EmailCopyTo = getattr(obj, 'EmailCopyTo', None)
             self.MerchantPhoneNumber = getattr(obj, 'MerchantPhoneNumber', None)
             self.StreetAddress = getattr(obj, 'StreetAddress', None)

@@ -63,3 +63,4 @@ from .SaveMerchantArgs import SaveMerchantArgs
 from .SaveMerchantBasicInfoArgs import SaveMerchantBasicInfoArgs
 from .SetDefaultPaymentMethodArgs import SetDefaultPaymentMethodArgs
 from .UpdateSupplierAliasArgs import UpdateSupplierAliasArgs
+from .Verify2FASetupArgs import Verify2FASetupArgs

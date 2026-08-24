@@ -12,6 +12,7 @@ class CreateDirectInteracTransactionArgs:
         if obj is None:
             
             self.SessionToken = None
+            self.IdempotencyKey = None
             self.MerchantId = None
             self.InteracInformation = None
             self.TransferDirection = None
@@ -25,6 +26,7 @@ class CreateDirectInteracTransactionArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
+            self.IdempotencyKey = getattr(obj, 'IdempotencyKey', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.InteracInformation = Interac(getattr(obj, 'InteracInformation', None)) if getattr(obj, 'InteracInformation', None) is not None else None
             self.TransferDirection = to_enum(TransferDirection, getattr(obj, 'TransferDirection', None))

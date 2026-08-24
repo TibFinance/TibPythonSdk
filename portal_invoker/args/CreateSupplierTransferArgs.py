@@ -11,6 +11,7 @@ class CreateSupplierTransferArgs:
         if obj is None:
             
             self.SessionToken = None
+            self.IdempotencyKey = None
             self.MerchantId = None
             self.Amount = None
             self.TransferDueDate = None
@@ -26,6 +27,7 @@ class CreateSupplierTransferArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
+            self.IdempotencyKey = getattr(obj, 'IdempotencyKey', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.Amount = getattr(obj, 'Amount', None)
             self.TransferDueDate = getattr(obj, 'TransferDueDate', None)

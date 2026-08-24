@@ -61,3 +61,4 @@ from .SaveCustomerResponse import SaveCustomerResponse
 from .SaveMerchantResponse import SaveMerchantResponse
 from .SetDefaultPaymentMethodResponse import SetDefaultPaymentMethodResponse
 from .UpdateSupplierAliasResponse import UpdateSupplierAliasResponse
+from .Verify2FASetupResponse import Verify2FASetupResponse

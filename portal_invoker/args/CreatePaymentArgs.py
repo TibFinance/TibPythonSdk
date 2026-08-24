@@ -10,6 +10,7 @@ class CreatePaymentArgs:
         if obj is None:
             
             self.SessionToken = None
+            self.IdempotencyKey = None
             self.BillId = None
             self.SetPaymentCustomerFromBill = None
             self.CustomerEmail = None
@@ -26,6 +27,7 @@ class CreatePaymentArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
+            self.IdempotencyKey = getattr(obj, 'IdempotencyKey', None)
             self.BillId = getattr(obj, 'BillId', None)
             self.SetPaymentCustomerFromBill = getattr(obj, 'SetPaymentCustomerFromBill', None)
             self.CustomerEmail = getattr(obj, 'CustomerEmail', None)

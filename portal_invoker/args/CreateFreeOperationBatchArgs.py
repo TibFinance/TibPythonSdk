@@ -9,6 +9,7 @@ class CreateFreeOperationBatchArgs:
         if obj is None:
             
             self.SessionToken = None
+            self.IdempotencyKey = None
             self.FreeOperationBatchList = None
             self.GroupId = None
             self.StopSameIdentifications = None
@@ -16,6 +17,7 @@ class CreateFreeOperationBatchArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
+            self.IdempotencyKey = getattr(obj, 'IdempotencyKey', None)
 
             self.FreeOperationBatchList = []
             if hasattr(obj, 'FreeOperationBatchList') and obj.FreeOperationBatchList is not None:

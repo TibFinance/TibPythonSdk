@@ -298,7 +298,7 @@ class Portal:
     @staticmethod
     def saveMerchantAccountInfo(saveMerchantAccountInfoArgs):
         """
-            Saves the merchant account information. This operation is protected by two-factor authentication.
+            Saves the merchant account information. This operation is protected by two-factor authentication. On first use the response carries two-factor setup instructions (TwoFactorStatus and TwoFactorSetupData); see the Two-factor authentication guide.
             Parameters
             ----------
             saveMerchantAccountInfoArgs : SaveMerchantAccountInfoArgs, required
@@ -376,7 +376,7 @@ class Portal:
     @staticmethod
     def adjustWallet(adjustWalletArgs):
         """
-            Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service.
+            Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             adjustWalletArgs : AdjustWalletArgs, required
@@ -1000,7 +1000,7 @@ class Portal:
     @staticmethod
     def createPayment(createPaymentArgs):
         """
-            Creates a payment associated with a specific bill.
+            Creates the payment. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createPaymentArgs : CreatePaymentArgs, required
@@ -1078,7 +1078,7 @@ class Portal:
     @staticmethod
     def createDirectInteracTransaction(createDirectInteracTransactionArgs):
         """
-            Creates the direct Interac transaction
+            Creates the direct Interac transaction. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createDirectInteracTransactionArgs : CreateDirectInteracTransactionArgs, required
@@ -1104,7 +1104,7 @@ class Portal:
     @staticmethod
     def createTransactionFromRaw(createTransactionFromRawArgs):
         """
-            Creates the transaction from raw.
+            Creates the transaction from raw. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createTransactionFromRawArgs : CreateTransactionFromRawArgs, required
@@ -1156,7 +1156,7 @@ class Portal:
     @staticmethod
     def forcePaymentProcess(forcePaymentProcessArgs):
         """
-            Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create.
+            Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             forcePaymentProcessArgs : ForcePaymentProcessArgs, required
@@ -1208,7 +1208,7 @@ class Portal:
     @staticmethod
     def createFreeOperation(createFreeOperationArgs):
         """
-            Creates the free operation.
+            Creates the free operation. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createFreeOperationArgs : CreateFreeOperationArgs, required
@@ -1234,7 +1234,7 @@ class Portal:
     @staticmethod
     def createFreeOperationBatch(createFreeOperationBatchArgs):
         """
-            Creates a batch of free operations (deposits or collections) in a single call. Validates that client onboarding (KYC) is completed before allowing free deposit operations.
+            Creates a batch of free operations (deposits or collections) in a single call. Validates that client onboarding (KYC) is completed before allowing free deposit operations. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createFreeOperationBatchArgs : CreateFreeOperationBatchArgs, required
@@ -1260,7 +1260,7 @@ class Portal:
     @staticmethod
     def revertTransfer(revertTransferArgs):
         """
-            Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create.
+            Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             revertTransferArgs : RevertTransferArgs, required
@@ -1364,7 +1364,7 @@ class Portal:
     @staticmethod
     def relaunchMerchantFailedTransfer(relaunchMerchantFailedTransferArgs):
         """
-            Relaunches (retries) a previously failed transfer for a merchant. Resets the failed payment in the database for reprocessing and sends an internal notification email with the transfer details.
+            Relaunches (retries) a previously failed transfer for a merchant. Resets the failed payment in the database for reprocessing and sends an internal notification email with the transfer details. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             relaunchMerchantFailedTransferArgs : RelaunchMerchantFailedTransferArgs, required
@@ -1390,7 +1390,7 @@ class Portal:
     @staticmethod
     def createSupplierTransfer(createSupplierTransferArgs):
         """
-            Creates a payment transfer from the calling merchant to a supplier. Validates both merchants, runs business rules on the sending merchant's limits, creates the transfer as a free collection, and optionally creates a bill. Notifies the supplier unless client approval is required.
+            Creates a payment transfer from the calling merchant to a supplier. Validates both merchants, runs business rules on the sending merchant's limits, creates the transfer as a free collection, and optionally creates a bill. Notifies the supplier unless client approval is required. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createSupplierTransferArgs : CreateSupplierTransferArgs, required
@@ -1671,6 +1671,32 @@ class Portal:
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = GetWalletOperationsResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def verify2FASetup(verify2FASetupArgs):
+        """
+            Verifies the 2FA setup after user scans QR code and enters the code. Enables 2FA for the user once verification succeeds.
+            Parameters
+            ----------
+            verify2FASetupArgs : Verify2FASetupArgs, required
+
+            Returns
+            -------
+            Verify2FASetupResponse : Verify2FASetupResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(verify2FASetupArgs)
+        api_response = call_tib_api(method_name='Verify2FASetup', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = Verify2FASetupResponse(api_response)
         return api_response
 
 

@@ -11,6 +11,7 @@ class CreateFreeOperationArgs:
         if obj is None:
             
             self.SessionToken = None
+            self.IdempotencyKey = None
             self.MerchantId = None
             self.BillId = None
             self.CustomerId = None
@@ -33,6 +34,7 @@ class CreateFreeOperationArgs:
         else:
             
             self.SessionToken = getattr(obj, 'SessionToken', None)
+            self.IdempotencyKey = getattr(obj, 'IdempotencyKey', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)
             self.BillId = getattr(obj, 'BillId', None)
             self.CustomerId = getattr(obj, 'CustomerId', None)
