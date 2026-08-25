@@ -1,19 +1,19 @@
 
 
+from .Service import Service
 
 
-
-class ServiceWithMerchant:
+class ServiceWithMerchant(Service):
     def __init__(self, obj=None):
         if obj is None:
-            
+            super().__init__()
             self.ServicePrimaryMerchant = None
             self.ServiceFeeSettings = None
             self.ServiceSettings = None
             self.OverloadedFeesMerchantName = None
 
         else:
-            
+            super().__init__(obj)
             from .MerchantView import MerchantView
             from .ServiceFeeSettings import ServiceFeeSettings
             from .ServiceSettings import ServiceSettings

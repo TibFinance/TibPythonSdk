@@ -1,12 +1,12 @@
 
 
+from .PaymentBase import PaymentBase
 
 
-
-class PaymentBaseWithHierarchy:
+class PaymentBaseWithHierarchy(PaymentBase):
     def __init__(self, obj=None):
         if obj is None:
-            
+            super().__init__()
             self.ServiceId = None
             self.ServiceName = None
             self.MerchantId = None
@@ -18,7 +18,7 @@ class PaymentBaseWithHierarchy:
             self.IsPayerView = None
 
         else:
-            
+            super().__init__(obj)
             self.ServiceId = getattr(obj, 'ServiceId', None)
             self.ServiceName = getattr(obj, 'ServiceName', None)
             self.MerchantId = getattr(obj, 'MerchantId', None)

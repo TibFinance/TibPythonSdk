@@ -1,16 +1,16 @@
 
 
+from .PaymentBaseWithHierarchy import PaymentBaseWithHierarchy
 
 
-
-class Payment:
+class Payment(PaymentBaseWithHierarchy):
     def __init__(self, obj=None):
         if obj is None:
-            
+            super().__init__()
             self.Operations = None
 
         else:
-            
+            super().__init__(obj)
             from .PaymentOperationEntity import PaymentOperationEntity
 
             self.Operations = []
