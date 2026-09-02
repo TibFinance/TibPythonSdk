@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='tib-finance',
-    version='2.3.1',
+    version='2.4.0',
     url="https://github.com/TibFinance/TibPythonSdk",
     author="TIB Finance",
     author_email="support@tib.finance",
