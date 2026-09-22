@@ -12,7 +12,7 @@ class Portal:
     @staticmethod
     def createSession(createSessionArgs):
         """
-            Creates an authenticated session for a TIB Finance client.
+            Creates the session.
             Parameters
             ----------
             createSessionArgs : CreateSessionArgs, required
@@ -38,7 +38,7 @@ class Portal:
     @staticmethod
     def listServices(listServicesArgs):
         """
-            Retrieves the list of service contracts associated with the authenticated merchant.
+            Lists the services.
             Parameters
             ----------
             listServicesArgs : ListServicesArgs, required
@@ -64,7 +64,7 @@ class Portal:
     @staticmethod
     def getService(getServiceArgs):
         """
-            Retrieves the details of a specific Service (contract) for the authenticated client.
+            Gets the service.
             Parameters
             ----------
             getServiceArgs : GetServiceArgs, required
@@ -90,7 +90,7 @@ class Portal:
     @staticmethod
     def getWalletInformationsByService(getWalletInformationsArgs):
         """
-            Retrieves the wallet state for a specific service.
+            Retrieves wallet information for a service, including the effective balance (wallet balance plus available delay buffer minus pending collections), the risk-adjusted withdrawable amount, processing status, and whether the new wallet feature is active.
             Parameters
             ----------
             getWalletInformationsArgs : GetWalletInformationsArgs, required
@@ -116,7 +116,7 @@ class Portal:
     @staticmethod
     def listMerchants(listMerchantsArgs):
         """
-            Retrieves a list of merchant accounts accessible to the authenticated session.
+            Lists the merchants.
             Parameters
             ----------
             listMerchantsArgs : ListMerchantsArgs, required
@@ -142,7 +142,7 @@ class Portal:
     @staticmethod
     def getServiceBoardingStatus(getServiceBoardingStatusArgs):
         """
-            Retrieves the boarding status of all merchants associated with a specific service.
+            Retrieves the payment provider boarding (onboarding) status for all merchants within a service. Returns each merchant's boarding progress with their current status.
             Parameters
             ----------
             getServiceBoardingStatusArgs : GetServiceBoardingStatusArgs, required
@@ -220,7 +220,7 @@ class Portal:
     @staticmethod
     def getMerchant(getMerchantArgs):
         """
-            Retrieves the details of a merchant by its GUID.
+            Gets the merchant.
             Parameters
             ----------
             getMerchantArgs : GetMerchantArgs, required
@@ -272,7 +272,7 @@ class Portal:
     @staticmethod
     def saveMerchantBasicInfo(saveMerchantBasicInfoArgs):
         """
-            Updates the basic profile data of an existing merchant.
+            Saves the merchant basic information.
             Parameters
             ----------
             saveMerchantBasicInfoArgs : SaveMerchantBasicInfoArgs, required
@@ -324,7 +324,7 @@ class Portal:
     @staticmethod
     def deleteMerchant(deleteMerchantArgs):
         """
-            Deletes a merchant (bank account) identified by its GUID.
+            Deletes the merchant.
             Parameters
             ----------
             deleteMerchantArgs : DeleteMerchantArgs, required
@@ -350,7 +350,7 @@ class Portal:
     @staticmethod
     def getMerchantsByExternalId(getMerchantsByExternalIdArgs):
         """
-            Retrieves TIB merchant records that match a given external system identifier.
+            Gets the merchants by external identifier.
             Parameters
             ----------
             getMerchantsByExternalIdArgs : GetMerchantsByExternalIdArgs, required
@@ -402,7 +402,7 @@ class Portal:
     @staticmethod
     def listCustomers(listCustomersArgs):
         """
-            Retrieves a list of customer objects associated with the specified merchant.
+            Lists the customers.
             Parameters
             ----------
             listCustomersArgs : ListCustomersArgs, required
@@ -428,7 +428,7 @@ class Portal:
     @staticmethod
     def createCustomer(createCustomerArgs):
         """
-            Creates a new Customer object in TIB Finance.
+            Creates the customer.
             Parameters
             ----------
             createCustomerArgs : CreateCustomerArgs, required
@@ -454,7 +454,7 @@ class Portal:
     @staticmethod
     def getCustomer(getCustomerArgs):
         """
-            Retrieves details of a specific customer.
+            Gets the customer.
             Parameters
             ----------
             getCustomerArgs : GetCustomerArgs, required
@@ -480,7 +480,7 @@ class Portal:
     @staticmethod
     def saveCustomer(saveCustomerArgs):
         """
-            Creates or updates a customer record in TIB Finance.
+            Saves the customer.
             Parameters
             ----------
             saveCustomerArgs : SaveCustomerArgs, required
@@ -532,7 +532,7 @@ class Portal:
     @staticmethod
     def deleteCustomer(deleteCustomerArgs):
         """
-            Deletes a customer record from the TIB Finance system.
+            Deletes the customer.
             Parameters
             ----------
             deleteCustomerArgs : DeleteCustomerArgs, required
@@ -558,7 +558,7 @@ class Portal:
     @staticmethod
     def getCustomersByExternalId(getCustomersByExternalIdArgs):
         """
-            Retrieves one or more TIB Finance customers matching a given external identifier.
+            Gets the customers by external identifier.
             Parameters
             ----------
             getCustomersByExternalIdArgs : GetCustomersByExternalIdArgs, required
@@ -584,7 +584,7 @@ class Portal:
     @staticmethod
     def listPaymentMethods(listPaymentMethodsArgs):
         """
-            Retrieves all payment methods associated with a specific customer under a given merchant.
+            Lists the payment methods.
             Parameters
             ----------
             listPaymentMethodsArgs : ListPaymentMethodsArgs, required
@@ -610,7 +610,7 @@ class Portal:
     @staticmethod
     def createCreditCardPaymentMethod(createCreditCardPaymentMethodArgs):
         """
-            Creates a new credit‑card payment method for a specified customer.
+            Creates the credit card payment method.
             Parameters
             ----------
             createCreditCardPaymentMethodArgs : CreateCreditCardPaymentMethodArgs, required
@@ -662,7 +662,7 @@ class Portal:
     @staticmethod
     def createInteracPaymentMethod(createInteracPaymentMethodArgs):
         """
-            Creates an Interac payment method for a specified customer.
+            Creates the Interac payment method.
             Parameters
             ----------
             createInteracPaymentMethodArgs : CreateInteracPaymentMethodArgs, required
@@ -688,7 +688,7 @@ class Portal:
     @staticmethod
     def getPaymentMethod(getPaymentMethodArgs):
         """
-            Retrieves the details of a specific payment method.
+            Gets the payment method.
             Parameters
             ----------
             getPaymentMethodArgs : GetPaymentMethodArgs, required
@@ -714,7 +714,7 @@ class Portal:
     @staticmethod
     def deletePaymentMethod(deletePaymentMethodArgs):
         """
-            Deletes a specific payment method from a customer profile.
+            Deletes the payment method.
             Parameters
             ----------
             deletePaymentMethodArgs : DeletePaymentMethodArgs, required
@@ -740,7 +740,7 @@ class Portal:
     @staticmethod
     def setDefaultPaymentMethod(setDefaultPaymentMethodArgs):
         """
-            Sets the default payment method for a specified customer.
+            Sets the default payment method.
             Parameters
             ----------
             setDefaultPaymentMethodArgs : SetDefaultPaymentMethodArgs, required
@@ -766,7 +766,7 @@ class Portal:
     @staticmethod
     def listBills(listBillsArgs):
         """
-            Retrieves a collection of bills created within a specified time range.
+            Lists the bills.
             Parameters
             ----------
             listBillsArgs : ListBillsArgs, required
@@ -792,7 +792,7 @@ class Portal:
     @staticmethod
     def createBill(createBillArgs):
         """
-            Creates a new bill record in TIB Finance.
+            Creates the bill.
             Parameters
             ----------
             createBillArgs : CreateBillArgs, required
@@ -818,7 +818,7 @@ class Portal:
     @staticmethod
     def getBill(getBillArgs):
         """
-            Retrieves details of a specific bill.
+            Gets the bill.
             Parameters
             ----------
             getBillArgs : GetBillArgs, required
@@ -844,7 +844,7 @@ class Portal:
     @staticmethod
     def deleteBill(deleteBillArgs):
         """
-            Deletes a previously created bill.
+            Deletes the bill.
             Parameters
             ----------
             deleteBillArgs : DeleteBillArgs, required
@@ -870,7 +870,7 @@ class Portal:
     @staticmethod
     def listTransfers(listTransfersArgs):
         """
-            Retrieves a paginated list of transfer records matching the supplied filters.
+            Lists the transfers.
             Parameters
             ----------
             listTransfersArgs : ListTransfersArgs, required
@@ -948,7 +948,7 @@ class Portal:
     @staticmethod
     def getRecuringTransfers(getRecuringTransfersArgs):
         """
-            Retrieves all active recurring transfers for a specified service.
+            Retrieves all active recurring transfers for a given service, including their next scheduled recurrence date and associated merchant information.
             Parameters
             ----------
             getRecuringTransfersArgs : GetRecuringTransfersArgs, required
@@ -974,7 +974,7 @@ class Portal:
     @staticmethod
     def deleteRecuringTransfer(deleteRecuringTransferArgs):
         """
-            Deletes a recurring transfer and cancels all its future scheduled executions.
+            Deletes a recurring transfer by its identifier, stopping all future scheduled occurrences.
             Parameters
             ----------
             deleteRecuringTransferArgs : DeleteRecuringTransferArgs, required

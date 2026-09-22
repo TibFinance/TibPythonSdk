@@ -73,7 +73,8 @@ REGEX_MAPPER = {
     "BILL_DESCRIPTION_VALIDATION": r"^[A-Za-z0-9_ -@.,'!?;:&$%*()àâçéèêëîïôûùüÿñæœ]{1,1000}$",
     "INTERAC_OWNER_VALIDATION": r"^[A-Za-z0-9,_@. àâçéèêëîïôûùüÿñæœ]{1,80}$",
     "EMAIL_VALIDATION": r"^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$",
-    "MOBILE_VALIDATION": r"^[0-9-]{10}$",
+    # TIB2-785: the platform strips non-digits and a leading "1", then requires 10 digits.
+    "MOBILE_VALIDATION": r"^(?:[^0-9]*1)?(?:[^0-9]*[0-9]){10}[^0-9]*$|^$",
     "INTERAC_QUESTION_VALIDATION": r"^[A-Za-z0-9_@., 'àâçéèêëîïôûùüÿñæœ]{1,40}$",
     "INTERAC_ANSWER_VALIDATION": r"^[A-Za-z0-9 -'àâçéèêëîïôûùüÿñæœ]{1,40}$",
     "MERCHANT_ACCOUNT_NAME_VALIDATION": r"^[A-Za-z0-9 'àâçéèêëîïôûùüÿñæœ]{1,15}$",

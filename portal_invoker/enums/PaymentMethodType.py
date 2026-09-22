@@ -7,4 +7,5 @@ class PaymentMethodType(enum.Enum):
     CreditCard = 1
     DirectAccount = 2
     Interac = 3
+    Wallet = 4
 

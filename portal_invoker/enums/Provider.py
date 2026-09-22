@@ -9,5 +9,6 @@ class Provider(enum.Enum):
     CA_Account_Desjardins = 1100
     CA_Account_RBC = 1101
     CA_Interac_RBC = 1200
+    CA_Interac_RBC_v2 = 1201
     RBC_ARN = 3000
 

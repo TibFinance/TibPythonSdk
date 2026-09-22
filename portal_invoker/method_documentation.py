@@ -657,7 +657,7 @@ METHOD_DOC = {
                     Description: "interact Test",
                     Owner: "Kelly interact",
                     TargetEmailAddress: "kinterac@dummytest.com",
-                    TargetMobilePhoneNumber: "888-123-4567",
+                    TargetMobilePhoneNumber: "415-555-2671",
                     InteracQuestion: "Remember the fruit",
                     InteracAnswer: "Orange"
                     }
@@ -687,7 +687,7 @@ METHOD_DOC = {
                         "Description": "Interac Test",
                         "Owner": "Kelly interact",
                         "TargetEmailAddress": "kinterac@dummytest.com",
-                        "TargetMobilePhoneNumber": "888-123-4567",
+                        "TargetMobilePhoneNumber": "415-555-2671",
                         "InteracQuestion": "Remember the fruit",
                         "InteracAnswer": "Orange"
                     },
