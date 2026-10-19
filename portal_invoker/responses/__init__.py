@@ -30,6 +30,7 @@ from .GetBillResponse import GetBillResponse
 from .GetCustomerResponse import GetCustomerResponse
 from .GetCustomersByExternalIdResponse import GetCustomersByExternalIdResponse
 from .GetDropInPublicTokenResponse import GetDropInPublicTokenResponse
+from .GetLoginAccessListResponse import GetLoginAccessListResponse
 from .GetMerchantResponse import GetMerchantResponse
 from .GetMerchantsByExternalIdResponse import GetMerchantsByExternalIdResponse
 from .GetPaymentMethodResponse import GetPaymentMethodResponse
@@ -52,6 +53,7 @@ from .ListSuppliersResponse import ListSuppliersResponse
 from .ListSupplierTransfersResponse import ListSupplierTransfersResponse
 from .ListTransfersFastResponse import ListTransfersFastResponse
 from .ListTransfersResponse import ListTransfersResponse
+from .LoginResponse import LoginResponse
 from .RelaunchMerchantFailedTransferResponse import RelaunchMerchantFailedTransferResponse
 from .RequestDataResponse import RequestDataResponse
 from .ResendPaymentEmailResponse import ResendPaymentEmailResponse

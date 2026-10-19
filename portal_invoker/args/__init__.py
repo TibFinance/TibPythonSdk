@@ -29,6 +29,7 @@ from .GetBillArgs import GetBillArgs
 from .GetCustomerArgs import GetCustomerArgs
 from .GetCustomersByExternalIdArgs import GetCustomersByExternalIdArgs
 from .GetDropInPublicTokenArgs import GetDropInPublicTokenArgs
+from .GetLoginAccessListArgs import GetLoginAccessListArgs
 from .GetMerchantArgs import GetMerchantArgs
 from .GetMerchantsByExternalIdArgs import GetMerchantsByExternalIdArgs
 from .GetPaymentArgs import GetPaymentArgs
@@ -53,6 +54,7 @@ from .ListSupplierTransfersArgs import ListSupplierTransfersArgs
 from .ListTransfersArgs import ListTransfersArgs
 from .ListTransfersFastArgs import ListTransfersFastArgs
 from .ListTransfersForBillFastArgs import ListTransfersForBillFastArgs
+from .LoginArgs import LoginArgs
 from .RelaunchMerchantFailedTransferArgs import RelaunchMerchantFailedTransferArgs
 from .ResendPaymentEmailArgs import ResendPaymentEmailArgs
 from .RevertTransferArgs import RevertTransferArgs

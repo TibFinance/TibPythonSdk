@@ -15,7 +15,6 @@ from .PaymentFlow import PaymentFlow
 from .PaymentFlowParsingResult import PaymentFlowParsingResult
 from .PaymentMethodType import PaymentMethodType
 from .ProcessStatus import ProcessStatus
-from .Provider import Provider
 from .ProvinceStateId import ProvinceStateId
 from .ReferenceType import ReferenceType
 from .TibOperationStatus import TibOperationStatus

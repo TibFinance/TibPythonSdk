@@ -5,7 +5,6 @@ from ..enums import Currency
 from ..enums import Language
 from ..enums import ProvinceStateId
 from ..enums import CountryId
-from ..enums import Provider
 
 
 class MerchantView:
@@ -31,7 +30,6 @@ class MerchantView:
             self.ServiceId = None
             self.CountryId = None
             self.PostalZipCode = None
-            self.AccountProvider = None
             self.BoardingStatus = None
             self.BoardingFiles = None
 
@@ -57,7 +55,6 @@ class MerchantView:
             self.ServiceId = getattr(obj, 'ServiceId', None)
             self.CountryId = to_enum(CountryId, getattr(obj, 'CountryId', None))
             self.PostalZipCode = getattr(obj, 'PostalZipCode', None)
-            self.AccountProvider = to_enum(Provider, getattr(obj, 'AccountProvider', None))
             self.BoardingStatus = getattr(obj, 'BoardingStatus', None)
 
             self.BoardingFiles = []

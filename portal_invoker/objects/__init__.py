@@ -12,6 +12,7 @@ from .FreeCollectionOperation import FreeCollectionOperation
 from .FreeCollectionWithHierarchy import FreeCollectionWithHierarchy
 from .FreeOperation import FreeOperation
 from .Interac import Interac
+from .LoginRelationsEntity import LoginRelationsEntity
 from .MerchantIdName import MerchantIdName
 from .Merchant import Merchant
 from .MerchantBasicInfo import MerchantBasicInfo

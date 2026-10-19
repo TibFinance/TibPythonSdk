@@ -1,0 +1,16 @@
+
+
+from .BaseApiResponse import BaseApiResponse
+
+
+class LoginResponse(BaseApiResponse):
+    def __init__(self, obj=None):
+        if obj is None:
+            super().__init__()
+            self.SessionId = None
+
+        else:
+            super().__init__(obj)
+            self.SessionId = getattr(obj, 'SessionId', None)
+
+

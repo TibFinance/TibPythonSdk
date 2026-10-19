@@ -12,7 +12,7 @@ class Portal:
     @staticmethod
     def createSession(createSessionArgs):
         """
-            Creates the session.
+            Opens a client-level session for a user who has client-level access to the given ClientId. Send the returned SessionId as SessionToken on the following calls. For a merchant-level or service-level access, use GetLoginAccessList, then Login.
             Parameters
             ----------
             createSessionArgs : CreateSessionArgs, required
@@ -33,6 +33,58 @@ class Portal:
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = CreateSessionResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def getLoginAccessList(getLoginAccessListArgs):
+        """
+            Lists the accesses of a user. Each entry is one access that Login can open a session on (usually a client, a merchant or a service) and gives the LoginsUserRelationsId to pass to Login.
+            Parameters
+            ----------
+            getLoginAccessListArgs : GetLoginAccessListArgs, required
+
+            Returns
+            -------
+            GetLoginAccessListResponse : GetLoginAccessListResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(getLoginAccessListArgs)
+        api_response = call_tib_api(method_name='GetLoginAccessList', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = GetLoginAccessListResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def login(loginArgs):
+        """
+            Opens a session on one access of a user, usually a client, a merchant or a service. Call GetLoginAccessList first and pass the LoginsUserRelationsId of the access to open. Send the returned SessionId as SessionToken on the following calls. On a merchant-level session, each MerchantId described as automatically set for merchant-level logins takes the session's merchant, whatever value is sent.
+            Parameters
+            ----------
+            loginArgs : LoginArgs, required
+
+            Returns
+            -------
+            LoginResponse : LoginResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(loginArgs)
+        api_response = call_tib_api(method_name='Login', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = LoginResponse(api_response)
         return api_response
 
     @staticmethod
