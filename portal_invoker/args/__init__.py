@@ -17,6 +17,7 @@ from .CreateSubClientArgs import CreateSubClientArgs
 from .CreateSupplierArgs import CreateSupplierArgs
 from .CreateSupplierTransferArgs import CreateSupplierTransferArgs
 from .CreateTransactionFromRawArgs import CreateTransactionFromRawArgs
+from .CreateTransferBatchArgs import CreateTransferBatchArgs
 from .DeleteBillArgs import DeleteBillArgs
 from .DeleteCustomerArgs import DeleteCustomerArgs
 from .DeleteMerchantArgs import DeleteMerchantArgs
@@ -39,6 +40,7 @@ from .GetServiceArgs import GetServiceArgs
 from .GetServiceBoardingStatusArgs import GetServiceBoardingStatusArgs
 from .GetSuppliersArgs import GetSuppliersArgs
 from .GetSupplierTransferArgs import GetSupplierTransferArgs
+from .GetTransferBatchResultArgs import GetTransferBatchResultArgs
 from .GetWalletInformationsArgs import GetWalletInformationsArgs
 from .GetWalletOperationsArgs import GetWalletOperationsArgs
 from .ListBillsArgs import ListBillsArgs

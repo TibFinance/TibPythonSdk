@@ -1156,7 +1156,7 @@ class Portal:
     @staticmethod
     def createTransactionFromRaw(createTransactionFromRawArgs):
         """
-            Creates the transaction from raw. This operation supports idempotency via the IdempotencyKey field.
+            Uploads a payment file, as text. Once the file is accepted, each transaction in the file becomes one bank-account payment. This operation supports idempotency via the IdempotencyKey field.
             Parameters
             ----------
             createTransactionFromRawArgs : CreateTransactionFromRawArgs, required
@@ -1307,6 +1307,58 @@ class Portal:
         if api_response is not None:
             api_response = dict2obj(api_response)
             api_response = CreateFreeOperationBatchResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def createTransferBatch(createTransferBatchArgs):
+        """
+            Submits up to 1,000 collections and deposits for one merchant in a single call. Each item carries its customer and either a bank account or an Interac recipient; every item is checked when the call is made and gets its own result. Accepted items are processed in the background, in request order; read their outcome with GetTransferBatchResult and the reply's BatchId. A merchant session acts for its own merchant; a client or service session names the merchant in MerchantId. If the login that sent a request is deleted, or can no longer create payments for the merchant, before its items are processed, the request stops (2110): let a login's requests finish before you delete it or change its access. Set ValidateOnly to check the items without creating anything. This operation requires the IdempotencyKey field: for at least 24 hours, a repeated call with the same key and the same request returns the first response; after that, reusing the key of an Accepted or Processed call is refused with 2101, or with 2108 when the merchant already has 5 requests waiting or being processed.
+            Parameters
+            ----------
+            createTransferBatchArgs : CreateTransferBatchArgs, required
+
+            Returns
+            -------
+            CreateTransferBatchResponse : CreateTransferBatchResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(createTransferBatchArgs)
+        api_response = call_tib_api(method_name='CreateTransferBatch', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = CreateTransferBatchResponse(api_response)
+        return api_response
+
+    @staticmethod
+    def getTransferBatchResult(getTransferBatchResultArgs):
+        """
+            Reads a request made with CreateTransferBatch: where it stands, its totals, and the outcome of its items, a page at a time (FromIndex, MaxItems). Poll it every 30 seconds with the reply's BatchId until Status is Completed, Stopped or Failed. Error 2112 is final: stop polling that BatchId. After any other error, read its message: sign in again if the session has expired (the BatchId stays readable), correct the call on 2003, and otherwise poll again later. The client that sent a request can always read it: a client session reads all of its client's requests, a service session those of the merchants of its services, and a merchant session those of its own merchant. Read-only logins may call it.
+            Parameters
+            ----------
+            getTransferBatchResultArgs : GetTransferBatchResultArgs, required
+
+            Returns
+            -------
+            GetTransferBatchResultResponse : GetTransferBatchResultResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(getTransferBatchResultArgs)
+        api_response = call_tib_api(method_name='GetTransferBatchResult', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = GetTransferBatchResultResponse(api_response)
         return api_response
 
     @staticmethod

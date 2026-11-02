@@ -18,6 +18,10 @@ from .ProcessStatus import ProcessStatus
 from .ProvinceStateId import ProvinceStateId
 from .ReferenceType import ReferenceType
 from .TibOperationStatus import TibOperationStatus
+from .TransferBatchCustomerAction import TransferBatchCustomerAction
+from .TransferBatchItemOutcome import TransferBatchItemOutcome
+from .TransferBatchOutcome import TransferBatchOutcome
+from .TransferBatchStatus import TransferBatchStatus
 from .TransferDirection import TransferDirection
 from .TransferFrequency import TransferFrequency
 from .TransferType import TransferType

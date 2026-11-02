@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as fh:
+with open("README-BETA.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
     name='tib-finance',
-    version='3.0.0',
+    version='3.1.0b1',
     url="https://github.com/TibFinance/TibPythonSdk",
     author="TIB Finance",
     author_email="support@tib.finance",
-    description="Python SDK for the TIB Finance payment processing API",
+    description="Beta of the Python SDK for the TIB Finance payment processing API, for the sandbox only",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
@@ -17,7 +17,7 @@ setup(
     python_requires='>=3.8',
     install_requires=['pycryptodome', 'requests'],
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",

@@ -1,3 +1,5 @@
+> **This branch is a sandbox-only beta.** See [README-BETA.md](README-BETA.md). The rest of this page describes the released SDK, on `main`.
+
 # TIB Finance Python SDK
 
 ![PyPI](https://img.shields.io/badge/python-3.8%2B-blue)
