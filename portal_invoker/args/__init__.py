@@ -5,6 +5,7 @@ from .ChangeInteracPaymentMethodQuestionAndAnswerArgs import ChangeInteracPaymen
 from .CreateBillArgs import CreateBillArgs
 from .CreateCreditCardPaymentMethodArgs import CreateCreditCardPaymentMethodArgs
 from .CreateCustomerArgs import CreateCustomerArgs
+from .CreateCustomerV2Args import CreateCustomerV2Args
 from .CreateDirectAccountPaymentMethodArgs import CreateDirectAccountPaymentMethodArgs
 from .CreateDirectInteracTransactionArgs import CreateDirectInteracTransactionArgs
 from .CreateFreeOperationArgs import CreateFreeOperationArgs

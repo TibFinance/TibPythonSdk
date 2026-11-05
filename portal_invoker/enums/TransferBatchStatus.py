@@ -8,4 +8,5 @@ class TransferBatchStatus(enum.Enum):
     Completed = 3
     Stopped = 4
     Failed = 5
+    HeldForApproval = 6
 

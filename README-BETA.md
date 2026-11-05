@@ -1,10 +1,10 @@
-# TIB Finance Python SDK, beta 3.1.0b1
+# TIB Finance Python SDK, beta 3.1.0b2
 
-**Sandbox only.** Production needs the real SDK release. Do not build a production dependency on this package. `createTransferBatch`, `getTransferBatchResult` and their types can still change, and a change to them means a new beta (`b2`). Their rules are checked on the server, so a rule can change with no new package.
+**Sandbox only.** Production needs the real SDK release. Do not build a production dependency on this package. `createTransferBatch`, `getTransferBatchResult`, `createCustomerV2` and their types can still change, and a change to them means a new beta (`b3`). Their rules are checked on the server, so a rule can change with no new package.
 
-Install from the wheel file. It replaces any installed `tib-finance`, so use a separate virtual environment.
+Install the wheel from the GitHub release. It replaces any installed `tib-finance`, so use a separate virtual environment.
 
-    pip install tib_finance-3.1.0b1-py3-none-any.whl
+    pip install https://github.com/TibFinance/TibPythonSdk/releases/download/v3.1.0b2/tib_finance-3.1.0b2-py3-none-any.whl
 
 A first call. `ValidateOnly` checks the items and creates nothing.
 
@@ -23,6 +23,9 @@ sign_in.ClientId = "your_client_id"
 sign_in.Username = "your_username"
 sign_in.Password = "your_password"
 session = Portal.createSession(sign_in)
+if session.HasError:
+    print(session.Errors)
+    raise SystemExit("The sign-in failed.")
 
 contact = ContactInfo()
 contact.Email = "jane.doe@example.com"
@@ -64,8 +67,10 @@ for result in response.Results:
     print(result.Outcome, result.ErrorCode, result.Message)
 ```
 
-The Python examples on the documentation pages run as written with this package.
+The Python examples on the beta pages of the documentation run with this package once you sign in with Login or CreateSession and replace their sample session, merchant, service and request ids with your own.
 
 One name differs from the pages: `CustomerAction` value 0 is `None` there and `TransferBatchCustomerAction.NotSet` here.
+
+From 3.1.0b1 to this beta: a `Status` of 6 from `getTransferBatchResult` changes from the plain int `6` to `TransferBatchStatus.HeldForApproval`, an enum member, so a test such as `status == 6` no longer matches. Compare with the member: `status == TransferBatchStatus.HeldForApproval`.
 
 Documentation: https://doc.tib.finance/eng/Beta/AboutBeta

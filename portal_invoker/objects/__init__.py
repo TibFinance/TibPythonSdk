@@ -8,6 +8,7 @@ from .ContactInfo import ContactInfo
 from .CreditCard import CreditCard
 from .CustomerEntity import CustomerEntity
 from .Customer import Customer
+from .CustomerV2 import CustomerV2
 from .FreeCollectionOperation import FreeCollectionOperation
 from .FreeCollectionWithHierarchy import FreeCollectionWithHierarchy
 from .FreeOperation import FreeOperation
