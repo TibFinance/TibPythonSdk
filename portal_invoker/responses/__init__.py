@@ -5,6 +5,7 @@ from .ChangeInteracPaymentMethodQuestionAndAnswerResponse import ChangeInteracPa
 from .CreateBillResponse import CreateBillResponse
 from .CreateCreditCardPaymentMethodResponse import CreateCreditCardPaymentMethodResponse
 from .CreateCustomerResponse import CreateCustomerResponse
+from .CreateCustomerV2Response import CreateCustomerV2Response
 from .CreateDirectAccountPaymentMethodResponse import CreateDirectAccountPaymentMethodResponse
 from .CreateDirectInteracTransactionResponse import CreateDirectInteracTransactionResponse
 from .CreateFreeOperationBatchResponse import CreateFreeOperationBatchResponse
@@ -18,6 +19,7 @@ from .CreateSubClientResponse import CreateSubClientResponse
 from .CreateSupplierResponse import CreateSupplierResponse
 from .CreateSupplierTransferResponse import CreateSupplierTransferResponse
 from .CreateTransactionFromRawResponse import CreateTransactionFromRawResponse
+from .CreateTransferBatchResponse import CreateTransferBatchResponse
 from .DeleteBillResponse import DeleteBillResponse
 from .DeleteCustomerResponse import DeleteCustomerResponse
 from .DeleteMerchantResponse import DeleteMerchantResponse
@@ -40,6 +42,7 @@ from .GetServiceBoardingStatusResponse import GetServiceBoardingStatusResponse
 from .GetServiceResponse import GetServiceResponse
 from .GetSuppliersResponse import GetSuppliersResponse
 from .GetSupplierTransferResponse import GetSupplierTransferResponse
+from .GetTransferBatchResultResponse import GetTransferBatchResultResponse
 from .GetWalletInformationsResponse import GetWalletInformationsResponse
 from .GetWalletOperationsResponse import GetWalletOperationsResponse
 from .ListBillsResponse import ListBillsResponse

@@ -8,6 +8,7 @@ from .ContactInfo import ContactInfo
 from .CreditCard import CreditCard
 from .CustomerEntity import CustomerEntity
 from .Customer import Customer
+from .CustomerV2 import CustomerV2
 from .FreeCollectionOperation import FreeCollectionOperation
 from .FreeCollectionWithHierarchy import FreeCollectionWithHierarchy
 from .FreeOperation import FreeOperation
@@ -32,6 +33,10 @@ from .ServiceWithMerchant import ServiceWithMerchant
 from .SupplierView import SupplierView
 from .TransactionCommon import TransactionCommon
 from .TransferBaseInformationEntity import TransferBaseInformationEntity
+from .TransferBatchCustomer import TransferBatchCustomer
+from .TransferBatchItem import TransferBatchItem
+from .TransferBatchItemResult import TransferBatchItemResult
+from .TransferBatchTotals import TransferBatchTotals
 from .TwoFactorSetupData import TwoFactorSetupData
 from .WalletHolder import WalletHolder
 from .Wallet import Wallet
