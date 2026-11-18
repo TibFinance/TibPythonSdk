@@ -1829,6 +1829,32 @@ class Portal:
             api_response = Verify2FASetupResponse(api_response)
         return api_response
 
+    @staticmethod
+    def getPendingTransferApprovals(getPendingTransferApprovalsArgs):
+        """
+            Lists the transfers of your services that are waiting to be approved or declined in the portal, the newest first. The list is not paged. A payment to a supplier is listed for the paying merchant and for the supplier; only the paying merchant can approve or decline it.
+            Parameters
+            ----------
+            getPendingTransferApprovalsArgs : GetPendingTransferApprovalsArgs, required
+
+            Returns
+            -------
+            GetPendingTransferApprovalsResponse : GetPendingTransferApprovalsResponse
+
+            Raises ------ InvalidSiteURLError If server is not set then it will throw an Error EncryptionProcessError In
+            encryption there are some issues with padding or data length is incorrect for encryption then server will
+            refuse the API request and this error will be raised
+        
+            InternalServerError
+                Error in API call from server
+        """
+        api_request_body = object2dict(getPendingTransferApprovalsArgs)
+        api_response = call_tib_api(method_name='GetPendingTransferApprovals', api_request_body=api_request_body)
+        if api_response is not None:
+            api_response = dict2obj(api_response)
+            api_response = GetPendingTransferApprovalsResponse(api_response)
+        return api_response
+
 
     @staticmethod
     def initialize_portal(site_url):

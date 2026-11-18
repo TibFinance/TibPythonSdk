@@ -37,6 +37,7 @@ from .GetMerchantResponse import GetMerchantResponse
 from .GetMerchantsByExternalIdResponse import GetMerchantsByExternalIdResponse
 from .GetPaymentMethodResponse import GetPaymentMethodResponse
 from .GetPaymentResponse import GetPaymentResponse
+from .GetPendingTransferApprovalsResponse import GetPendingTransferApprovalsResponse
 from .GetRecuringTransfersResponse import GetRecuringTransfersResponse
 from .GetServiceBoardingStatusResponse import GetServiceBoardingStatusResponse
 from .GetServiceResponse import GetServiceResponse

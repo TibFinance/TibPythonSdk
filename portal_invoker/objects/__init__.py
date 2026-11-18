@@ -24,6 +24,7 @@ from .PaymentMethod import PaymentMethod
 from .Payment import Payment
 from .PaymentBase import PaymentBase
 from .PaymentOperationEntity import PaymentOperationEntity
+from .PendingTransferDto import PendingTransferDto
 from .RecuringTransfer import RecuringTransfer
 from .ServiceEntity import ServiceEntity
 from .ServiceFeeSettings import ServiceFeeSettings

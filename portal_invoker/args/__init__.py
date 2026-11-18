@@ -36,6 +36,7 @@ from .GetMerchantArgs import GetMerchantArgs
 from .GetMerchantsByExternalIdArgs import GetMerchantsByExternalIdArgs
 from .GetPaymentArgs import GetPaymentArgs
 from .GetPaymentMethodArgs import GetPaymentMethodArgs
+from .GetPendingTransferApprovalsArgs import GetPendingTransferApprovalsArgs
 from .GetRecuringTransfersArgs import GetRecuringTransfersArgs
 from .GetServiceArgs import GetServiceArgs
 from .GetServiceBoardingStatusArgs import GetServiceBoardingStatusArgs
